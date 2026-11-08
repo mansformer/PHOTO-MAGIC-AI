@@ -1,8 +1,8 @@
 {
   "name": "photo-magic-ai",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "private": true,
-  "description": "Android photo editor with horizontal swipe toolbar, 480 offline recipes, 30 magic effects and 30 upcoming AI tools",
+  "description": "Offline Android photo editor with 430 effects, a single horizontal carousel and separately grouped tools",
   "scripts": {
     "android:init": "npx cap add android",
     "android:sync": "npx cap sync android",
