@@ -27,8 +27,11 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Use Android SDK preinstalled on GitHub runner
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          test -d "$ANDROID_HOME"
+          ls "$ANDROID_HOME/platforms" || true
 
       - name: Install dependencies
         run: npm install --no-audit --no-fund
