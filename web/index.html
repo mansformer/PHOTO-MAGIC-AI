@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#10121a" />
+  <meta name="description" content="PHOTO MAGIC AI — редактор фотографий с сохранением естественной внешности" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>PHOTO MAGIC AI — 480 офлайн-эффектов + 30 ИИ-инструментов</title>
+  <style>
+  :root{--bg:#0a0c11;--panel:#131620;--panel2:#191d29;--panel3:#202635;--text:#f6f7fa;--muted:#9297a7;--border:#2b3041;--accent:#9d7dff;--accent2:#60e8cb;--radius:20px;--shadow:0 25px 80px #0006}
+  *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-tap-highlight-color:transparent}button,input,select{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.4}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}button,.chip,.tool{touch-action:manipulation}input[type=range]{accent-color:var(--accent);width:100%;height:27px}small{color:var(--muted)}.app{display:grid;grid-template-columns:254px minmax(0,1fr);min-height:100vh}.sidebar{padding:28px 17px 20px;background:#10131c;border-right:1px solid #262b39;display:flex;flex-direction:column;gap:23px}.brand{display:flex;gap:12px;align-items:center;padding:0 8px}.mark{width:45px;height:45px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,#9d7dff,#55e5d5);box-shadow:0 6px 28px #8c75ff60;color:#10131a;font-size:25px;font-weight:900}.brandname{font-weight:900;font-size:17px;letter-spacing:.7px}.brandname b{color:#b7a2ff}.subbrand{color:var(--muted);font-size:11px;margin-top:3px}.nav{display:grid;gap:8px}.navbutton{border:0;background:none;color:#9fa5b6;display:flex;gap:12px;align-items:center;text-align:left;padding:15px 14px;border-radius:15px;font-size:14px;font-weight:650;width:100%}.navbutton .navico{font-size:21px;width:22px;text-align:center}.navbutton.active{background:#272038;color:#e8ddff;box-shadow:inset 3px 0 0 #a789ff}.navbutton:hover{background:#202433;color:white}.sidecard{margin-top:auto;border:1px solid #48415d;border-radius:20px;padding:19px;background:radial-gradient(circle at 90% 0%,#4a3762 0%,#23202d 65%)}.sidecard strong{font-size:16px}.sidecard p{color:#bbb5c8;font-size:12px;line-height:1.6}.sidecard button{background:#a58bff;border:0;border-radius:11px;color:#16121e;padding:11px 15px;font-size:12px;font-weight:800;width:100%}.content{min-width:0;padding:25px 31px 44px;max-width:1480px;width:100%;margin:auto}.header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:23px}.eyebrow{font-size:12px;font-weight:700;color:var(--accent2);letter-spacing:1.8px;text-transform:uppercase}.header h1{font-size:clamp(24px,3.5vw,34px);margin:6px 0 0;letter-spacing:-.9px}.topright{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.status{border:1px solid #304a45;background:#192b2a;color:#8ce7c9;padding:9px 12px;border-radius:14px;font-size:12px;font-weight:700;white-space:nowrap}.button{border:1px solid #424458;color:white;background:#252a3a;padding:12px 17px;border-radius:13px;font-weight:760;font-size:13px;transition:transform .15s,background .15s}.button:active{transform:scale(.97)}.button:hover{background:#33374b}.button.primary{background:linear-gradient(125deg,#b49dff,#7b69ef);color:#151222;border:0;box-shadow:0 10px 30px #9b7aff35}.button.primary:hover{filter:brightness(1.08)}.button.minimal{border:0;background:#222635}.button.green{background:#75e7d1;color:#112c2d;border:0}.editor-layout{display:grid;grid-template-columns:minmax(0,1fr) 313px;gap:19px}.stagecard,.controlcard,.panel{background:#141720;border:1px solid #2a2f3d;border-radius:22px;overflow:hidden}.stagehead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px 20px;border-bottom:1px solid #282c3a;flex-wrap:wrap}.sectitle{font-size:14px;font-weight:800}.overline{font-size:11px;color:var(--muted);margin-top:3px}.pill{font-size:10px;color:#8aefcc;border:1px solid #30614f;background:#163229;padding:6px 9px;border-radius:50px;font-weight:800}.stage-area{padding:22px;min-height:510px;background:radial-gradient(circle at 50% 25%,#27223a,#151820 66%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.canvas-wrap{display:flex;align-items:center;justify-content:center;position:relative;max-height:510px;max-width:100%;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#0e1119}.canvas-wrap canvas{display:block;max-width:100%;max-height:510px;width:auto;height:auto;object-fit:contain}.before-label{position:absolute;top:13px;left:13px;background:#10131dc9;color:white;padding:6px 11px;border-radius:8px;font-size:11px;z-index:1;display:none}.stage-float{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:8px;background:#10131be8;border:1px solid #38394c;box-shadow:0 6px 26px #0008;border-radius:15px;padding:7px;backdrop-filter:blur(12px);max-width:calc(100% - 30px)}.stage-float button{background:#252838;border:0;border-radius:10px;color:#e5e6ed;padding:9px 12px;white-space:nowrap;font-size:11px;font-weight:700}.stage-float button:hover{background:#4a4163}.stagefoot{padding:16px 20px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.stagefoot .filedetails{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:250px}.right-stack{display:flex;flex-direction:column;gap:17px}.controlcard{padding:19px}.controltitle{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.controltitle span{font-weight:850;font-size:15px}.controltitle small{font-size:11px}.presets{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.preset{height:61px;border:1px solid #34394b;border-radius:12px;background:#242938;color:#d8d9e2;font-size:11px;font-weight:720;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px}.preset i{font-style:normal;font-size:17px}.preset.active{border-color:#ab96ff;background:#3a3154;color:#e3d8ff}.sliders{display:grid;gap:13px}.slidertop{display:flex;justify-content:space-between;align-items:center;color:#d5d9e4;font-size:12px;font-weight:660}.slidertop output{color:#bdaaff;font-variant-numeric:tabular-nums}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.tool{background:#252b3b;border:1px solid #3a4152;color:#d8d9e2;border-radius:12px;padding:9px 11px;font-weight:720;font-size:11px}.tool.active{background:#332a4d;border-color:#8d76e7;color:#daccff}.muted{color:var(--muted);font-size:12px;line-height:1.7}.safety{padding:16px 19px;border:1px solid #325047;background:#172b29;border-radius:17px;color:#b9ebdb;font-size:12px;line-height:1.55}.safety b{color:#ddfff4}.ai-row{display:flex;justify-content:space-between;align-items:center;border:1px solid #343a4b;background:#222637;border-radius:13px;padding:12px;margin-top:9px;gap:10px}.ai-row div{font-size:12px;font-weight:700}.ai-row small{font-size:10px}.soon{color:#b9a4ff;font-size:10px;font-weight:900;white-space:nowrap}.gridstat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin:20px 0}.stat{background:#1a1e2a;border:1px solid #313648;border-radius:17px;padding:19px}.stat strong{display:block;font-size:23px}.stat small{font-size:12px}.hero{display:grid;grid-template-columns:1.3fr 1fr;min-height:270px;border-radius:24px;background:radial-gradient(circle at 90% 30%,#4c377c,transparent 55%),linear-gradient(125deg,#20243a,#191b2c);border:1px solid #3a3c59;overflow:hidden}.herotext{padding:32px}.herotext h2{font-size:clamp(23px,3vw,39px);line-height:1.14;margin:12px 0}.herotext p{color:#b9bdce;line-height:1.7;max-width:450px}.heroart{position:relative;display:grid;place-items:center;min-height:220px}.heroart .lens{width:min(210px,65%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 40% 35%,#bcfcfa 0%,#7e66dc 25%,#201e47 48%,#0e111e 61%);border:13px solid #2d284f;box-shadow:0 0 0 17px #ffffff08,0 0 80px #ae74ff80,inset 0 0 35px #000c;display:grid;place-items:center;font-size:55px}.cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}.feature{padding:22px;background:#181c27;border:1px solid #30364a;border-radius:19px}.feature>span{font-size:29px}.feature h3{font-size:15px}.feature p{font-size:12px;color:var(--muted);line-height:1.65}.empty{padding:38px 22px;text-align:center;background:#171b26;border:1px dashed #3c4153;border-radius:19px;color:#b9becd}.empty .emoji{font-size:45px}.recents{display:grid;gap:10px}.recent{background:#1b2030;border:1px solid #363b4b;border-radius:13px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:10px}.recent small{display:block;margin-top:4px}.pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.pricebox{background:#1a1f2e;border:1px solid #393d52;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px}.pricebox.highlight{border-color:#ad90ff;background:linear-gradient(155deg,#2a2443,#1a1e2b)}.pricebox h2{margin:0;font-size:17px}.pricebox .bigprice{font-size:31px;font-weight:900}.pricebox p{font-size:12px;line-height:1.8;color:#c2c4d2;flex:1}.pricebox .button{width:100%}.toast{position:fixed;bottom:28px;left:50%;transform:translate(-50%,20px);background:#ebedfa;color:#181b29;padding:13px 18px;border-radius:13px;font-size:12px;font-weight:750;box-shadow:0 13px 36px #0009;opacity:0;pointer-events:none;transition:all .25s;z-index:10;max-width:min(420px,90vw);text-align:center}.toast.visible{transform:translate(-50%,0);opacity:1}.hidden{display:none!important}.bottomnav{display:none}.divider{border-top:1px solid #292e3f;margin:17px 0}.select{border:1px solid #3c4054;color:#e3e5ed;background:#242939;border-radius:11px;padding:10px 12px;font-weight:700;font-size:12px}.toolbar-txt{font-weight:720;font-size:12px;color:#a9a7be;margin-top:10px}.tooltip{font-size:10px;color:#838da0;margin-top:8px}.filebtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}.footerline{margin-top:18px;text-align:center;color:#666e81;font-size:11px}.colorviolet{color:#bbacff}
+  @media(max-width:1100px){.app{grid-template-columns:85px minmax(0,1fr)}.sidebar{align-items:center;padding:25px 12px}.brand{padding:0}.brandname,.subbrand,.navbutton .navtext,.sidecard{display:none}.navbutton{justify-content:center;padding:14px}.navbutton .navico{font-size:23px}.nav{width:100%}.content{padding:21px}.editor-layout{grid-template-columns:minmax(0,1fr) 290px}.stage-area{min-height:435px}}
+  @media(max-width:760px){.status{display:none}.app{display:block}.sidebar{display:none}.content{padding:19px 15px calc(100px + env(safe-area-inset-bottom));}.header{align-items:start;margin-bottom:19px}.header h1{font-size:27px}.status{font-size:10px;padding:7px 8px}.topright .button{display:none}.editor-layout{display:flex;flex-direction:column}.stage-area{min-height:315px;padding:13px}.canvas-wrap,.canvas-wrap canvas{max-height:390px}.stage-float{bottom:17px}.stage-float button{padding:8px;font-size:10px}.stagehead{padding:14px}.stagefoot{padding:13px}.right-stack{display:grid;grid-template-columns:1fr;gap:12px}.controlcard{padding:16px}.presets{grid-template-columns:repeat(6,1fr);gap:6px}.preset{height:64px;font-size:9px;border-radius:10px}.preset i{font-size:15px}.bottomnav{position:fixed;bottom:0;left:0;right:0;z-index:5;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #383846;background:#14151dee;padding:8px 7px calc(9px + env(safe-area-inset-bottom));backdrop-filter:blur(18px)}.bottomnav button{display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px;background:none;border:0;color:#9398a8;font-weight:700;font-size:10px}.bottomnav button b{font-size:21px}.bottomnav button.active{color:#bea7ff}.hero{grid-template-columns:1fr}.herotext{padding:25px}.heroart{display:none}.cards3,.pricing{grid-template-columns:1fr}.gridstat{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:1/-1}.toast{bottom:95px}.eyebrow{font-size:10px}.filedetails{max-width:150px!important}}
+  @media(max-width:365px){.presets{grid-template-columns:repeat(3,1fr)}.header h1{font-size:24px}.status{display:none}}
+
+  /* AI toolbox v0.2 */
+  .colorviolet{color:#b8a3ff}.aihero{display:grid;grid-template-columns:1fr 180px;align-items:center;gap:12px;padding:31px;background:radial-gradient(circle at 87% 35%,#5a3588aa,transparent 43%),linear-gradient(130deg,#1d2235,#222034);border:1px solid #494065;border-radius:24px}.aihero h2{font-size:clamp(25px,3.5vw,40px);letter-spacing:-1px;line-height:1.17;margin:10px 0}.aihero p{max-width:660px;font-size:13px;line-height:1.7;color:#c6c5d3}.aihero-number{width:145px;height:145px;border-radius:35px;background:linear-gradient(135deg,#694bd5,#92c7ca);display:flex;flex-direction:column;justify-content:center;align-items:center;box-shadow:0 15px 55px #7d63ed55;transform:rotate(-7deg)}.aihero-number strong{font-size:76px;line-height:1}.aihero-number span{font-weight:850;letter-spacing:2px;font-size:13px}.ai-privacy{margin:16px 0;border-radius:14px;padding:14px 17px;background:#1d2c2d;color:#b8e8d9;border:1px solid #355c55;line-height:1.55;font-size:12px}.toolbox-top{margin:24px 0 14px;display:flex;align-items:center;justify-content:space-between;gap:18px}.toolbox-top>div{display:flex;flex-direction:column;gap:3px}.toolbox-top strong{font-size:21px}.toolbox-top small{font-size:12px}.toolbox-top input{max-width:335px;width:100%;padding:13px 15px;background:#1c2030;color:white;border:1px solid #3b4154;border-radius:13px;font-size:13px}.ai-filters{display:flex;overflow-x:auto;gap:8px;padding-bottom:15px;scrollbar-width:thin}.ai-filter{border:1px solid #34394b;background:#202535;color:#b6b9c6;border-radius:50px;padding:10px 14px;font-size:12px;font-weight:740;white-space:nowrap;flex-shrink:0}.ai-filter.active{background:#a68cff;color:#171123;border-color:transparent}.ai-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.ai-toolcard{min-height:200px;padding:16px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;background:#171b27;border:1px solid #353a4c;border-radius:19px;color:white;transition:background .12s,transform .12s,border-color .12s}.ai-toolcard:hover{background:#242337;border-color:#9f89ef;transform:translateY(-2px)}.ai-cardtop{display:flex;align-items:center;justify-content:space-between;width:100%;gap:7px}.ai-toolico{width:45px;height:45px;border-radius:14px;background:linear-gradient(130deg,#3d315b,#27394a);display:grid;place-items:center;font-size:25px}.ai-mini-label{font-size:10px;border-radius:7px;padding:5px 6px;background:#272b3d;color:#bbb8d6;white-space:nowrap}.ai-cardcat{font-size:10px;color:#a996e3;margin:13px 0 6px;font-weight:780}.ai-toolcard strong{font-size:14px;line-height:1.3}.ai-carddesc{font-size:11px;color:#9da3b3;line-height:1.55;margin-top:7px;flex:1}.ai-cardaction{font-size:11px;color:#c9b6ff;font-weight:850;padding-top:11px}.ai-empty{border:1px dashed #434557;padding:40px;text-align:center;border-radius:16px;color:#b9bed0}.ai-explainer{margin:18px 0 0;padding:17px;background:#1e2330;border-radius:16px;border:1px solid #353b4d;color:#bec3d4;font-size:12px;line-height:1.7}.ai-dialog-open{overflow:hidden}.ai-dialog{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:16px}.ai-shade{position:absolute;inset:0;background:#05060bcc;backdrop-filter:blur(8px)}.ai-modal{position:relative;background:#191c29;border:1px solid #46425f;border-radius:23px;width:min(540px,100%);max-height:min(92vh,880px);overflow-y:auto;padding:24px;box-shadow:0 32px 120px #000d}.ai-modal-head{display:flex;justify-content:space-between;align-items:start;gap:12px}.ai-modal-head h2{font-size:22px;line-height:1.3;margin:6px 0 11px}.ai-iconbtn{width:36px;height:36px;flex-shrink:0;border:1px solid #45495a;border-radius:10px;background:#25293a;color:white}.ai-photo-preview{margin-top:15px;min-height:140px;max-height:205px;border-radius:14px;background:#10141d;display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden}.ai-photo-preview img{height:205px;max-width:100%;object-fit:contain}.ai-photo-preview span{position:absolute;left:7px;bottom:7px;background:#0c0d13bc;border-radius:7px;padding:4px 8px;font-size:10px;color:#fafafa;max-width:95%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ai-inline-buttons{display:flex;gap:8px;margin:11px 0 17px}.ai-inline-buttons .button{flex:1;padding:10px}.ai-field{display:flex;flex-direction:column;gap:8px;color:#d9deec;font-weight:760;font-size:12px}.ai-field textarea{resize:vertical;width:100%;font:inherit;font-weight:400;line-height:1.6;color:white;border-radius:12px;padding:12px;border:1px solid #3e465b;background:#222638}.ai-settings{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:13px 0}.ai-settings select{padding:12px}.ai-check{margin:13px 0;display:flex;align-items:center;gap:9px;font-size:12px;color:#adddcc}.ai-check input{accent-color:#77d2bc}.ai-cost{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:11px;margin:15px 0;color:#b7b2cf}.ai-cloud{color:#e7c084}.ai-request-result{margin-top:14px;padding:14px;border-radius:12px;background:#22302e;border:1px solid #3b6057;font-size:12px;color:#b7e6d3}.ai-request-result strong{font-size:13px}.ai-request-result p{line-height:1.6}.ai-request-result button{padding:9px 14px}
+  @media(max-width:1200px){.ai-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:870px){.ai-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.aihero{grid-template-columns:1fr 110px}.aihero-number{width:100px;height:100px;border-radius:25px}.aihero-number strong{font-size:50px}.aihero-number span{font-size:10px}}
+  @media(max-width:480px){.ai-grid{gap:9px}.ai-toolcard{min-height:183px;padding:11px;border-radius:15px}.ai-toolico{height:39px;width:39px;font-size:22px}.ai-toolcard strong{font-size:12px}.ai-carddesc{font-size:10px}.aihero{padding:19px;grid-template-columns:1fr 65px;min-height:207px}.aihero-number{height:60px;width:60px;border-radius:16px}.aihero-number strong{font-size:28px}.aihero-number span{font-size:7px}.aihero p{font-size:11px}.aihero .button{font-size:11px}.toolbox-top{display:flex;flex-direction:column;align-items:stretch}.toolbox-top input{max-width:none}.ai-modal{padding:17px;max-height:94vh}.ai-modal-head h2{font-size:19px}.ai-settings{gap:7px}.ai-cost{font-size:10px}.ai-filters{margin-right:-15px}}
+
+
+/* PHOTO MAGIC 0.3 — native canvas offline preset collection */
+.fx-launch{margin:0 0 17px;padding:19px;border-radius:20px;background:radial-gradient(circle at 93% 5%,#533779 0%,transparent 58%),linear-gradient(135deg,#26223d,#151d2b);border:1px solid #655184;display:flex;flex-direction:column;gap:11px}
+.fx-launch strong{font-size:17px}.fx-launch p{color:#cbc8db;font-size:12px;margin:0;line-height:1.65}.fx-launch .button{width:100%;padding:15px}.fx-count-badge{font-size:11px;color:#b5f5e4;padding:6px 9px;border:1px solid #4c6e71;border-radius:9px;white-space:nowrap}
+.fx-tile-banner{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.fx-tile-banner span{height:46px;border-radius:10px;background:linear-gradient(125deg,#2c7891,#d6ba77);box-shadow:inset 0 0 15px #0006}.fx-tile-banner span:nth-child(2){background:linear-gradient(115deg,#aa5372,#5b7dce)}.fx-tile-banner span:nth-child(3){background:linear-gradient(115deg,#283f71,#9e66d5)}.fx-tile-banner span:nth-child(4){background:linear-gradient(115deg,#596f66,#e3cc9e)}
+.fx-modal{position:fixed;inset:0;z-index:30;background:#0b0d14f5;display:flex;justify-content:center;align-items:center;padding:18px;backdrop-filter:blur(13px)}
+.fx-shell{height:min(94vh,900px);display:flex;flex-direction:column;background:#151925;border:1px solid #4b4564;box-shadow:0 30px 110px #000c;border-radius:23px;max-height:96vh;width:min(1170px,100%);overflow:hidden}
+.fx-header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 21px;border-bottom:1px solid #303449;flex-shrink:0}.fx-header h2{font-size:19px;margin:4px 0 0}.fx-header p{margin:4px 0 0;color:#a6a7bb;font-size:11px}.fx-close{width:39px;height:39px;border:1px solid #41465a;background:#292e3d;border-radius:12px;color:#fff;font-size:19px}
+.fx-body{display:grid;grid-template-columns:minmax(0,1fr) 275px;min-height:0;flex:1}.fx-main{min-width:0;display:flex;flex-direction:column;min-height:0;border-right:1px solid #303449}.fx-preview{background:radial-gradient(circle at 50% 30%,#2d283b,#131721 70%);display:flex;flex-direction:column;align-items:center;padding:12px 15px 9px;border-bottom:1px solid #292d3d;gap:8px;flex-shrink:0}.fx-preview canvas{display:block;max-height:190px;max-width:100%;width:auto;height:auto;border-radius:10px;object-fit:contain;box-shadow:0 10px 25px #0008}.fx-preview span{font-size:11px;font-weight:760;color:#d5c4ff}.fx-controls{display:flex;align-items:center;gap:12px;padding:10px 17px 13px;flex-shrink:0;border-bottom:1px solid #303449}.fx-controls label{font-size:11px;color:#cbd0da;font-weight:740;white-space:nowrap}.fx-controls output{font-size:12px;width:35px;text-align:right;color:#ae9bfc}.fx-controls input{flex:1;min-width:55px}.fx-controls button{border:1px solid #464457;background:#2b2c3b;border-radius:9px;padding:8px;color:#dedbed;white-space:nowrap;font-size:11px}
+.fx-toolbar{padding:12px 14px;display:flex;gap:9px;align-items:center;flex-shrink:0}.fx-search{width:100%;min-width:0;border:1px solid #44435a;border-radius:11px;padding:11px 13px;background:#202536;color:white;font-size:13px}.fx-scope{border:1px solid #464457;background:#272c3c;border-radius:11px;color:#bfc2d1;font-size:12px;padding:11px;white-space:nowrap}.fx-scope.active{background:#4a375f;color:#f0dcff}
+.fx-categories{display:flex;overflow-x:auto;gap:6px;padding:0 14px 12px;flex-shrink:0;scrollbar-width:thin}.fx-category{border:1px solid #42465b;border-radius:100px;padding:8px 12px;color:#c5cada;background:#272c3a;white-space:nowrap;font-weight:710;font-size:11px}.fx-category.active{background:#a28dff;border-color:#a28dff;color:#161024}
+.fx-gallery-wrap{min-height:0;overflow-y:auto;padding:0 14px 12px;overscroll-behavior:contain}.fx-gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px}.fx-card{min-width:0;display:flex;flex-direction:column;position:relative;gap:5px;background:#222739;border:1px solid #353a4d;border-radius:12px;overflow:hidden;padding:5px 5px 9px;color:#e5e5ee;text-align:left}.fx-card.active{border-color:#bc9aff;background:#413253}.fx-card canvas{width:100%;height:87px;object-fit:cover;background:linear-gradient(135deg,#33425a,#af7295);border-radius:8px}.fx-card-name{font-size:10px;font-weight:750;padding:0 2px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:100%}.fx-card-no{font-size:9px;color:#979ab2;padding-left:2px}.fx-fav{position:absolute;right:8px;top:8px;z-index:2;background:#101218c9;border:1px solid #ffffff38;width:26px;height:26px;border-radius:8px;color:#cbd0dc;font-size:16px;display:grid;place-items:center}.fx-fav.active{color:#ff78b5}.fx-showmore{display:block;margin:15px auto;padding:12px 20px;background:#302947;border:1px solid #51446b;color:white;border-radius:11px;font-weight:740}
+.fx-side{display:flex;flex-direction:column;padding:21px;gap:15px;overflow-y:auto}.fx-side h3{font-size:17px;margin:0}.fx-side p{font-size:12px;color:#b4bac9;line-height:1.7;margin:0}.fx-side .button{width:100%;font-size:12px}.fx-meta{font-size:11px;color:#91e0c8;border:1px solid #315449;border-radius:11px;padding:11px;background:#1c2c2b}.fx-side .fx-rule{border-top:1px solid #303449;margin:2px 0}.fx-meta-pill{display:inline-block;border-radius:99px;padding:4px 8px;color:#d5c8fe;background:#342d52;font-size:10px}
+.fx-sample-title{color:#ddd0ff;font-weight:800;font-size:12px}
+body.fx-open{overflow:hidden}
+@media(max-width:1100px){.fx-gallery{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:700px){.fx-modal{padding:0}.fx-shell{width:100%;height:100dvh;max-height:100dvh;border:0;border-radius:0}.fx-body{grid-template-columns:1fr}.fx-main{border-right:0}.fx-side{border-top:1px solid #37354b;padding:12px 15px calc(16px + env(safe-area-inset-bottom));gap:7px;overflow:visible;flex-shrink:0}.fx-side h3,.fx-side p,.fx-side .fx-meta,.fx-side .fx-rule,.fx-side .fx-meta-pill{display:none}.fx-side .button{padding:12px}.fx-side-actions{display:flex;gap:8px}.fx-side-actions .button{flex:1}.fx-header{padding:11px 14px}.fx-header h2{font-size:17px}.fx-preview{padding:8px;gap:5px}.fx-preview canvas{max-height:145px}.fx-controls{padding:7px 13px}.fx-toolbar{padding:8px 12px}.fx-categories{padding:0 12px 8px}.fx-gallery-wrap{padding:0 10px 9px}.fx-gallery{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.fx-card canvas{height:80px}.fx-card-name{font-size:10px}.fx-card-no{font-size:8px}}
+@media(max-width:365px){.fx-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.fx-preview canvas{max-height:120px}.fx-header p{display:none}}
+
+
+/* Extra offline composer: frames, typography, emoji */
+.fx-textlabel{color:#c3c7d6;font-size:11px;font-weight:700;display:block;margin-bottom:7px}.fx-textinput{border:1px solid #424659;background:#242a39;color:#eee;border-radius:11px;width:100%;padding:13px;font-size:13px;margin-bottom:12px}.fx-decor{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.fx-decor .tool{font-size:19px;min-width:40px;padding:8px}.fx-decor-settings{display:grid;grid-template-columns:110px 1fr;gap:10px;margin-bottom:15px}.fx-decor-settings label{font-size:12px;color:#bdc3d5;display:flex;align-items:center;gap:8px;min-width:0}.fx-decor-settings input[type=color]{min-width:45px;width:45px;height:37px;background:none;border:0;padding:0;cursor:pointer}.fx-decor-settings input[type=range]{min-width:0;width:100%}
+
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="mark">✦</div><div><div class="brandname">PHOTO <b>MAGIC</b></div><div class="subbrand">AI PHOTO STUDIO</div></div></div>
+    <div class="nav">
+      <button class="navbutton" data-tab="home"><span class="navico">⌂</span><span class="navtext">Главная</span></button>
+      <button class="navbutton" data-tab="ai"><span class="navico">✧</span><span class="navtext">30 ИИ-функций</span></button>
+      <button class="navbutton active" data-tab="editor"><span class="navico">◈</span><span class="navtext">Фоторедактор</span></button>
+      <button class="navbutton" data-tab="history"><span class="navico">▤</span><span class="navtext">Мои экспорты</span></button>
+      <button class="navbutton" data-tab="pro"><span class="navico">✧</span><span class="navtext">Тарифы</span></button>
+    </div>
+    <div class="sidecard"><div style="font-size:29px">✧</div><strong>Magic PRO</strong><p>30 функций собраны в каталоге. Генерация станет доступна после подключения серверного ИИ.</p><button type="button" data-goto="pro">Подробнее о тарифах</button></div>
+  </aside>
+  <main class="content">
+    <header class="header"><div><div class="eyebrow">CREATIVE PHOTO LAB · v0.3 · 480 офлайн-эффектов + 30 ИИ</div><h1 id="pageTitle">Фоторедактор</h1></div><div class="topright"><div class="status">● Локальная версия · без загрузки в облако</div><label class="button primary filebtn">＋ Загрузить фото<input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/*" hidden /></label></div></header>
+
+    <section id="page-home" class="hidden">
+      <div class="hero"><div class="herotext"><div class="eyebrow">PHOTO MAGIC AI</div><h2>480 офлайн-эффектов и 30 ИИ-инструментов.<br/><span class="colorviolet">Одна фотостудия.</span><br/>Твоё настоящее лицо.</h2><p>Выбирай из 480 настоящих офлайн-пресетов доступны сразу без интернета. Ещё 30 генеративных ИИ-инструментов подготовлены к подключению серверных моделей.</p><button class="button primary" data-goto="editor">◈ Редактировать фото</button> <label class="button filebtn">＋ Выбрать фото<input type="file" class="anotherFileInput" accept="image/*" hidden /></label></div><div class="heroart"><div class="lens">✦</div></div></div>
+      <div class="cards3"><div class="feature"><span>✦</span><h3>480 офлайн-эффектов</h3><p>Кино, плёнка, чёрно-белые, пастель, неон, дуотон, поп-арт и другие стили без интернета.</p></div><div class="feature"><span>◇</span><h3>Кадрирование и поворот</h3><p>Форматы для публикаций, зеркальное отражение и экспорт фотографии.</p></div><div class="feature"><span>♧</span><h3>Сохраняем внешность</h3><p>Простые цветовые изменения не пересоздают лица. AI-ретушь будет отдельной опцией.</p></div></div>
+    </section>
+
+    <section id="page-editor">
+      <div class="editor-layout">
+        <div>
+          <div class="stagecard">
+            <div class="stagehead"><div><div class="sectitle">✦ Твоя фотостудия</div><div class="overline">Редактирование без интернета и отправки снимков</div></div><button id="openFxTop" class="button primary" type="button" style="padding:9px 12px;font-size:11px">✦ 480 ЭФФЕКТОВ</button></div>
+            <div class="stage-area"><div class="canvas-wrap" id="canvasWrap"><div id="beforeLabel" class="before-label">ОРИГИНАЛ</div><canvas id="photoCanvas" role="img" aria-label="Предпросмотр редактируемой фотографии"></canvas></div><div class="stage-float"><button id="compareBtn" type="button" title="Удерживайте, чтобы посмотреть оригинал">◉ До / После</button><button id="undoBtn" type="button" title="Отменить действие">↶ Отмена</button><button id="redoBtn" type="button" title="Повторить действие">↷ Повтор</button></div></div>
+            <div class="stagefoot"><div id="fileDetails" class="filedetails">Демо-фото · можно заменить своим</div><div style="display:flex;gap:8px;align-items:center"><select id="format" class="select" aria-label="Формат экспорта"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option></select><select id="exportSize" class="select" aria-label="Максимальное разрешение экспорта"><option value="1600">1.6K</option><option value="2400" selected>2.4K</option><option value="3200">3.2K</option><option value="4096">4K</option></select><button id="exportBtn" class="button green">↓ Сохранить</button></div></div>
+          </div>
+          <div style="margin-top:14px" class="safety">🛡️ <b>Режим сохранения внешности:</b> обработка света и цветов не заменяет лицо, нос, глаза или другие уникальные черты. В этом прототипе фотографии не отправляются на сервер.</div>
+          <div class="panel" style="padding:20px;margin-top:15px"><div class="controltitle"><span>✧ AI Magic</span><small>В каталоге: 30 функций</small></div><p class="muted">Удаление фона, примерка одежды, восстановление и ещё 27 функций собраны в отдельный каталог. Облачную генерацию подключим через защищённый сервер.</p><button type="button" class="button primary" data-goto="ai" style="width:100%">Открыть все 30 функций →</button></div>
+        </div>
+        <div class="right-stack">
+          <div class="fx-launch"><div style="display:flex;justify-content:space-between;align-items:center;gap:9px"><strong>✦ Библиотека эффектов</strong><span class="fx-count-badge">480 · офлайн</span></div><div class="fx-tile-banner"><span></span><span></span><span></span><span></span></div><p>16 коллекций, 480 рабочих стилей. Выбирай эффект, меняй силу, сохраняй фотографию без интернета.</p><button type="button" id="openFx" class="button primary">◈ Редактировать · 480 эффектов →</button></div>
+           <div class="controlcard"><div class="controltitle"><span>Быстрые стили</span><small>6 фильтров</small></div><div class="presets" id="presets"><button class="preset active" data-preset="original"><i>◌</i>Оригинал</button><button class="preset" data-preset="cinema"><i>◈</i>Кино</button><button class="preset" data-preset="warm"><i>☀</i>Тёплый</button><button class="preset" data-preset="bw"><i>◐</i>Ч/Б</button><button class="preset" data-preset="vivid"><i>✺</i>Яркий</button><button class="preset" data-preset="cold"><i>❄</i>Холод</button></div></div>
+          <div class="controlcard"><div class="controltitle"><span>Настройка фотографии</span><button id="resetBtn" class="tool">Сбросить</button></div>
+            <div class="sliders">
+              <label><div class="slidertop"><span>☀ Яркость</span><output id="val-brightness">100%</output></div><input id="brightness" data-range type="range" min="50" max="160" value="100" step="1" /></label>
+              <label><div class="slidertop"><span>◑ Контраст</span><output id="val-contrast">100%</output></div><input id="contrast" data-range type="range" min="50" max="170" value="100" step="1" /></label>
+              <label><div class="slidertop"><span>◈ Насыщенность</span><output id="val-saturation">100%</output></div><input id="saturation" data-range type="range" min="0" max="200" value="100" step="1" /></label>
+              <label><div class="slidertop"><span>🌡 Теплота</span><output id="val-warmth">0</output></div><input id="warmth" data-range type="range" min="-60" max="60" value="0" step="1" /></label>
+              <label><div class="slidertop"><span>◉ Виньетка</span><output id="val-vignette">0%</output></div><input id="vignette" data-range type="range" min="0" max="85" value="0" step="1" /></label>
+              <label><div class="slidertop"><span>◇ Мягкость</span><output id="val-blur">0</output></div><input id="blur" data-range type="range" min="0" max="4" value="0" step="0.5" /></label>
+            </div>
+          </div>
+          <div class="controlcard"><div class="controltitle"><span>Кадрирование</span><small>Пропорции</small></div><div class="toolbar" id="ratios"><button class="tool active" data-ratio="original">Оригинал</button><button class="tool" data-ratio="1:1">1:1</button><button class="tool" data-ratio="4:5">4:5</button><button class="tool" data-ratio="16:9">16:9</button></div><div class="divider"></div><div class="toolbar"><button id="rotateLeft" class="tool">↶ −90°</button><button id="rotateRight" class="tool">↷ +90°</button><button id="flipBtn" class="tool">⇄ Отразить</button></div><div class="toolbar-txt">Фото не обрезается необратимо. Можно вернуть оригинал.</div></div>
+          <div class="controlcard"><div class="controltitle"><span>✎ Надписи и стикеры</span><small>без сети</small></div>
+            <label class="fx-textlabel" for="overlayText">Текст на фотографии</label><input id="overlayText" type="text" maxlength="110" placeholder="Введите текст или добавьте эмодзи" class="fx-textinput"/>
+            <div class="fx-decor"><button class="tool" type="button" data-sticker="✨">✨</button><button class="tool" type="button" data-sticker="❤️">❤️</button><button class="tool" type="button" data-sticker="🔥">🔥</button><button class="tool" type="button" data-sticker="👑">👑</button><button class="tool" type="button" data-sticker="⭐">⭐</button><button class="tool" type="button" data-sticker="🌸">🌸</button></div>
+            <div class="fx-decor-settings"><label>Цвет <input id="overlayColor" type="color" value="#ffffff" aria-label="Цвет текста"/></label><label>Размер <input id="overlaySize" type="range" min="16" max="100" value="42" step="2" aria-label="Размер текста"/></label></div>
+            <div class="toolbar" id="textPositions"><button type="button" class="tool" data-text-pos="top">Сверху</button><button type="button" class="tool" data-text-pos="middle">По центру</button><button type="button" class="tool active" data-text-pos="bottom">Снизу</button></div>
+          </div>
+          <div class="controlcard"><div class="controltitle"><span>▣ Рамки</span><small>5 вариантов</small></div><div class="toolbar" id="frameStyles"><button type="button" class="tool active" data-frame="none">Без рамки</button><button type="button" class="tool" data-frame="white">Белая</button><button type="button" class="tool" data-frame="black">Чёрная</button><button type="button" class="tool" data-frame="film">Плёнка</button><button type="button" class="tool" data-frame="polaroid">Полароид</button></div></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="page-ai" class="hidden">
+      <div class="aihero">
+        <div><div class="eyebrow">MAGIC TOOLBOX · 30 ИНСТРУМЕНТОВ</div><h2>Выбирай магию.<br/><span class="colorviolet">Создавай свой стиль.</span></h2><p>30 востребованных ИИ-операций в шести категориях. Настоящий ИИ-сервер пока не подключён. Рабочие настройки света и фильтры доступны в редакторе.</p><button class="button primary" data-goto="editor">Открыть локальный редактор</button></div>
+        <div class="aihero-number"><strong>30</strong><span>AI tools</span></div>
+      </div>
+      <div class="ai-privacy">🛡️ <strong>Сохранение внешности — по умолчанию.</strong> Лицо, глаза, нос, губы и индивидуальные черты человека не должны изменяться при редактировании других областей. Генеративные результаты требуют визуальной проверки.</div>
+      <div class="toolbox-top"><div><strong>Все инструменты</strong><small id="aiCount">30 возможностей</small></div><input id="aiSearch" type="search" placeholder="Поиск: фон, лицо, одежда..." autocomplete="off" aria-label="Поиск ИИ-инструментов" /></div>
+      <div class="ai-filters" id="aiFilters" aria-label="Категории инструментов"></div>
+      <div class="ai-grid" id="aiGrid"></div>
+      <div class="ai-empty hidden" id="aiEmpty">Ничего не найдено. Попробуйте другой запрос.</div>
+      <div class="ai-explainer"><strong>Как работает обработка в будущем:</strong> выбери инструмент и параметры → загрузи фото → подтвердить отправку → задача на сервере → результат для сравнения «до/после». Сейчас запросы только подготавливаются локально; фото не отправляется в интернет.</div>
+    </section>
+
+    <div class="fx-modal hidden" id="fxModal" role="dialog" aria-modal="true" aria-label="Офлайн-эффекты" aria-hidden="true">
+      <div class="fx-shell">
+        <div class="fx-header"><div><div class="eyebrow">PHOTO MAGIC · OFFLINE STUDIO</div><h2>480 эффектов для твоих фотографий</h2><p>16 коллекций · фильтры на устройстве · без облака и подписки</p></div><button type="button" id="closeFx" class="fx-close" aria-label="Закрыть эффекты">✕</button></div>
+        <div class="fx-body"><div class="fx-main">
+          <div class="fx-preview"><canvas id="fxPreview" role="img" aria-label="Предпросмотр выбранного эффекта"></canvas><span id="fxCurrent">Оригинальная фотография</span></div>
+          <div class="fx-controls"><label for="fxStrength">Сила эффекта</label><input id="fxStrength" type="range" min="0" max="100" value="75" step="1" aria-label="Сила эффекта"/><output id="fxStrengthOut">75%</output><button type="button" id="fxClear">Сбросить</button></div>
+          <div class="fx-toolbar"><input id="fxSearch" class="fx-search" type="search" placeholder="Найти эффект: кино, неон, золото…" autocomplete="off" aria-label="Поиск эффектов"/><button type="button" id="fxOnlyFav" class="fx-scope" aria-pressed="false">♡ Избранное</button></div>
+          <div id="fxCategories" class="fx-categories" aria-label="Коллекции офлайн-эффектов"></div>
+          <div class="fx-gallery-wrap"><div id="fxGallery" class="fx-gallery"></div><button type="button" id="fxMore" class="fx-showmore hidden">Показать ещё 48</button><p id="fxEmpty" class="muted hidden" style="text-align:center">Не найдено эффектов. Измените поиск.</p></div>
+        </div><aside class="fx-side"><div class="fx-meta">● Все 480 эффектов работают без сети. Фото не загружается на сервер.</div><h3 id="fxDetails">Выбирай свой стиль</h3><p>Каждый пресет меняет пиксели фотографии локально. Переключение и отмена не портят оригинал.</p><div class="fx-rule"></div><span class="fx-meta-pill">Лицо не заменяется и не перерисовывается</span><div class="fx-side-actions"><button type="button" class="button" id="fxCancel">Отмена</button><button type="button" class="button primary" id="fxAccept">Применить эффект</button></div></aside></div>
+      </div>
+    </div>
+    <div class="ai-dialog hidden" id="aiDialog" aria-hidden="true">
+      <div class="ai-shade" data-close-ai></div>
+      <section class="ai-modal" role="dialog" aria-modal="true" aria-labelledby="aiModalTitle">
+        <div class="ai-modal-head"><div><div class="eyebrow" id="aiModalCategory"></div><h2 id="aiModalTitle"></h2></div><button type="button" class="ai-iconbtn" data-close-ai aria-label="Закрыть">✕</button></div>
+        <div id="aiModalDesc" class="muted"></div>
+        <div class="ai-photo-preview"><img id="aiPreview" alt="Текущее фото для будущей ИИ-обработки"/><span id="aiPreviewName"></span></div>
+        <div class="ai-inline-buttons"><button type="button" id="aiPickPhoto" class="button">＋ Другое фото</button><button type="button" id="aiGoEditor" class="button minimal">◈ Редактировать</button></div>
+        <label class="ai-field"><span>Что нужно получить</span><textarea id="aiPrompt" rows="3" maxlength="700" placeholder="Опиши желаемый результат"></textarea></label>
+        <div class="ai-settings"><label class="ai-field"><span>Сила изменений</span><select id="aiStrength" class="select"><option value="minimal">Минимальная</option><option value="balanced" selected>Сбалансированная</option><option value="strong">Выраженная</option></select></label><label class="ai-field"><span>Качество результата</span><select id="aiQuality" class="select"><option value="standard">Стандарт</option><option value="high" selected>Высокое</option></select></label></div>
+        <label class="ai-check"><input type="checkbox" checked disabled/> Всегда сохранять исходные черты лица</label>
+        <div class="ai-cost"><span id="aiCreditCost"></span><span class="ai-cloud">● ИИ-сервер не подключён</span></div>
+        <button type="button" class="button primary" id="aiPrepare" style="width:100%">Подготовить настройки обработки</button>
+        <div id="aiRequestResult" class="ai-request-result hidden"><strong>Параметры готовы</strong><p>Запрос составлен локально. Генерация станет возможна после подключения модели. Ни фото, ни запрос не отправлены на сервер.</p><button type="button" id="aiCopy" class="button">Копировать описание задачи</button></div>
+      </section>
+    </div>
+
+    <section id="page-history" class="hidden"><div class="panel" style="padding:25px"><div class="controltitle"><span>Экспортированные фотографии</span><small>Только в текущей сессии</small></div><p class="muted">Готовые файлы сохраняются в загрузках телефона. Здесь показывается только список последних экспортов текущей сессии: сами изображения приложение не хранит.</p><div id="recentList" class="recents"><div class="empty"><div class="emoji">▤</div><h3>Пока пусто</h3><p>Обработайте фотографию и нажмите «Сохранить».</p></div></div></div></section>
+
+    <section id="page-pro" class="hidden"><div class="panel" style="padding:24px;margin-bottom:16px"><div class="eyebrow">Бизнес-модель PHOTO MAGIC AI</div><h2 style="margin:9px 0">Базовая обработка бесплатно. ИИ — по кредитам.</h2><p class="muted">Тарифы ниже — запланированная модель монетизации, а не действующие платежи. Оплата и серверный ИИ ещё не подключены.</p></div>
+      <div class="pricing"><div class="pricebox"><h2>FREE</h2><div class="bigprice">0 ₽</div><p>Свет и цвет · 6 пресетов · Кадрирование · JPG/PNG · Обработка на устройстве</p><button class="button" data-goto="editor">Редактировать бесплатно</button></div>
+      <div class="pricebox highlight"><h2>MAGIC 10 <span class="pill">ПЛАН</span></h2><div class="bigprice">199 ₽</div><p>10 кредитов для облачных ИИ-операций · без подписки · дополнительные эффекты</p><button class="button" disabled>Платежи ещё не подключены</button></div>
+      <div class="pricebox"><h2>MAGIC PRO <span class="pill">ПЛАН</span></h2><div class="bigprice">599 ₽<span style="font-size:13px;font-weight:600">/мес.</span></div><p>30 ИИ-кредитов ежемесячно · платные стили · история облачных обработок по согласованию</p><button class="button" disabled>Платежи ещё не подключены</button></div></div>
+      <div class="safety" style="margin-top:16px">🔒 При подключении ИИ сначала запрашиваем согласие на передачу фотографии серверу. Для изменения фона или одежды применяем отдельные маски и контроль соответствия лица оригиналу.</div>
+    </section>
+    <div class="footerline">PHOTO MAGIC AI · v0.3 · 480 офлайн-эффектов + 30 подготовленных ИИ-инструментов</div>
+  </main>
+</div>
+<nav class="bottomnav" aria-label="Навигация"><button data-tab="home"><b>⌂</b>Главная</button><button data-tab="ai"><b>✧</b>ИИ-функции</button><button data-tab="editor" class="active"><b>◈</b>Редактор</button><button data-tab="history"><b>▤</b>Экспорты</button><button data-tab="pro"><b>✧</b>PRO</button></nav>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+'use strict';
+const $ = id=>document.getElementById(id);
+const defaultSettings=()=>({brightness:100,contrast:100,saturation:100,warmth:0,vignette:0,blur:0,effectId:null,effectIntensity:75,overlayText:'',overlayColor:'#ffffff',overlaySize:42,overlayPos:'bottom',frame:'none',ratio:'original',rotation:0,flip:false,preset:'original'});
+const presets={original:{},cinema:{brightness:95,contrast:127,saturation:87,warmth:-12,vignette:38},warm:{brightness:108,contrast:108,saturation:113,warmth:38,vignette:10},bw:{brightness:105,contrast:125,saturation:0,warmth:0,vignette:27},vivid:{brightness:105,contrast:118,saturation:157,warmth:8,vignette:8},cold:{brightness:103,contrast:109,saturation:93,warmth:-35,vignette:13}};
+const state={aiSelected:null,aiCategory:'Все',src:null,filename:'demo-landscape.jpg',settings:defaultSettings(),undo:[],redo:[],exports:[],compare:false,tab:'editor'};
+let scheduled=false,toastTimer=null;
+function toast(msg){const el=$('toast');el.textContent=msg;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),3300)}
+function snapshot(){state.undo.push(JSON.stringify(state.settings));if(state.undo.length>35)state.undo.shift();state.redo=[];updateHistoryButtons()}
+function updateHistoryButtons(){$('undoBtn').disabled=!state.undo.length;$('redoBtn').disabled=!state.redo.length}
+function go(tab){state.tab=tab;for(const name of ['home','ai','editor','history','pro']){$('page-'+name).classList.toggle('hidden',name!==tab)}document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===tab));$('pageTitle').textContent=({home:'Главная',ai:'30 ИИ-функций',editor:'Фоторедактор',history:'Мои экспорты',pro:'Тарифы Magic'})[tab];window.scrollTo({top:0,behavior:'smooth'})}
+for(const nav of document.querySelectorAll('[data-tab]'))nav.addEventListener('click',()=>go(nav.dataset.tab));for(const b of document.querySelectorAll('[data-goto]'))b.addEventListener('click',()=>go(b.dataset.goto));
+function drawDemo(){const canvas=document.createElement('canvas');canvas.width=1200;canvas.height=820;const c=canvas.getContext('2d');let g=c.createLinearGradient(0,0,0,820);g.addColorStop(0,'#30466e');g.addColorStop(.45,'#efac91');g.addColorStop(.72,'#efd2a2');g.addColorStop(1,'#345e75');c.fillStyle=g;c.fillRect(0,0,1200,820);let sun=c.createRadialGradient(820,285,4,820,285,300);sun.addColorStop(0,'#fff7c6');sun.addColorStop(.2,'#ffd4a8bb');sun.addColorStop(1,'#ffd4a800');c.fillStyle=sun;c.fillRect(450,0,750,620);c.fillStyle='#ffecd2';c.beginPath();c.arc(820,285,66,0,7);c.fill();function mountain(points,color){c.beginPath();c.moveTo(0,820);for(const [x,y]of points)c.lineTo(x,y);c.lineTo(1200,820);c.closePath();c.fillStyle=color;c.fill()}mountain([[0,455],[140,348],[270,438],[450,277],[605,442],[735,327],[980,454],[1070,335],[1200,460]],'#77718b');mountain([[0,545],[230,400],[385,508],[610,371],[812,505],[1007,402],[1200,507]],'#475571');mountain([[0,610],[260,489],[400,579],[630,482],[815,565],[1030,479],[1200,580]],'#2b4d65');g=c.createLinearGradient(0,565,0,820);g.addColorStop(0,'#b68f88');g.addColorStop(.45,'#467d8c');g.addColorStop(1,'#203c54');c.fillStyle=g;c.fillRect(0,578,1200,242);for(let i=0;i<95;i++){let y=595+i*2.3;c.fillStyle=`rgba(255,220,175,${.09+Math.random()*.12})`;let x=760-Math.random()*250;c.fillRect(x,y,50+Math.random()*310,.5+Math.random()*1.2)}mountain([[0,680],[130,638],[240,725],[330,658],[465,770],[630,820]],'#1b3945');mountain([[890,820],[1020,673],[1110,695],[1200,620]],'#1d3b45');for(let i=0;i<18;i++){let x=i<10?i*34:970+(i-10)*35,y=690+(i%3)*18,h=55+(i*37%100);c.strokeStyle='#16333b';c.lineWidth=5;c.beginPath();c.moveTo(x,y);c.lineTo(x,y-h);c.stroke();for(let k=0;k<4;k++){c.fillStyle='#1b3b40';c.beginPath();c.moveTo(x-15-k*4,y-h+18+k*18);c.lineTo(x,y-h-20+k*18);c.lineTo(x+15+k*4,y-h+18+k*18);c.closePath();c.fill()}}return canvas.toDataURL('image/jpeg',.94)}
+function setSource(img,name){state.src=img;state.filename=name;state.settings=defaultSettings();state.undo=[];state.redo=[];syncControls();updateHistoryButtons();$('fileDetails').textContent=`${name} · ${img.naturalWidth||img.width}×${img.naturalHeight||img.height}`;go(state.tab==='ai'?'ai':'editor');if(state.aiSelected)refreshAiPreview();scheduleRender()}
+function loadData(data,name){const img=new Image();img.onload=()=>setSource(img,name);img.onerror=()=>toast('Не удалось открыть изображение. Попробуйте JPG или PNG.');img.src=data}
+function handleFile(file){if(!file)return;if(!file.type.startsWith('image/')){toast('Выберите изображение.');return}if(file.size>35*1024*1024){toast('Файл слишком большой. Максимум — 35 МБ.');return}const url=URL.createObjectURL(file);const img=new Image();img.onload=()=>{setSource(img,file.name.replace(/[^\p{L}\p{N}._-]/gu,'_'));URL.revokeObjectURL(url)};img.onerror=()=>{URL.revokeObjectURL(url);toast('Формат не поддерживается браузером. Попробуйте JPG или PNG.')};img.src=url}
+$('fileInput').addEventListener('change',e=>{handleFile(e.target.files[0]);e.target.value='' });document.querySelectorAll('.anotherFileInput').forEach(i=>i.addEventListener('change',e=>{handleFile(e.target.files[0]);e.target.value=''}));
+function cropDimensions(){const img=state.src;if(!img)return null;const w=img.naturalWidth||img.width,h=img.naturalHeight||img.height,rot=((state.settings.rotation%360)+360)%360;const swapped=rot%180!==0;let cw=swapped?h:w,ch=swapped?w:h;if(state.settings.ratio!=='original'){const [a,b]=state.settings.ratio.split(':').map(Number),ar=a/b;if(cw/ch>ar)cw=ch*ar;else ch=cw/ar}return{w,h,cw,ch}}
+function filterString(s,scale=1){return `brightness(${s.brightness}%) contrast(${s.contrast}%) saturate(${s.saturation}%) blur(${s.blur*scale}px)`}
+function renderTo(canvas,maxSize,original=false){if(!state.src)return;const s=original?{...state.settings,brightness:100,contrast:100,saturation:100,warmth:0,vignette:0,blur:0}:state.settings;const d=cropDimensions();if(!d)return;const factor=Math.min(1,maxSize/Math.max(d.cw,d.ch)),width=Math.max(1,Math.round(d.cw*factor)),height=Math.max(1,Math.round(d.ch*factor));canvas.width=width;canvas.height=height;const c=canvas.getContext('2d',{alpha:false});c.imageSmoothingEnabled=true;c.imageSmoothingQuality='high';c.fillStyle='#13141a';c.fillRect(0,0,width,height);c.save();c.translate(width/2,height/2);c.scale((s.flip?-1:1)*factor,factor);c.rotate(s.rotation*Math.PI/180);c.filter=filterString(s,1/factor);c.drawImage(state.src,-d.w/2,-d.h/2,d.w,d.h);c.restore();if(!original&&s.warmth!==0){c.save();c.globalCompositeOperation='soft-light';c.globalAlpha=Math.abs(s.warmth)/140;c.fillStyle=s.warmth>0?'#ff9944':'#69adff';c.fillRect(0,0,width,height);c.restore()}if(!original&&s.vignette>0){c.save();let r=Math.max(width,height)*.75,gradient=c.createRadialGradient(width/2,height/2,Math.min(width,height)*.12,width/2,height/2,r);gradient.addColorStop(0,'rgba(0,0,0,0)');gradient.addColorStop(1,`rgba(0,0,0,${s.vignette/100})`);c.fillStyle=gradient;c.fillRect(0,0,width,height);c.restore()}if(!original&&s.effectId&&s.effectIntensity>0){applyOfflineEffect(c,width,height,s.effectId,s.effectIntensity)}if(!original){drawOfflineDecorations(c,width,height,s)}}
+function scheduleRender(){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;renderTo($('photoCanvas'),1080,state.compare)})}
+function syncControls(){for(const p of ['brightness','contrast','saturation','warmth','vignette','blur']){const n=$(p);n.value=state.settings[p];$('val-'+p).textContent=(p==='warmth'||p==='blur'?state.settings[p]:state.settings[p]+'%')}document.querySelectorAll('[data-preset]').forEach(b=>b.classList.toggle('active',b.dataset.preset===state.settings.preset));document.querySelectorAll('[data-ratio]').forEach(b=>b.classList.toggle('active',b.dataset.ratio===state.settings.ratio));$('flipBtn').classList.toggle('active',state.settings.flip);syncFxControls();syncDecorControls()}
+for(const range of document.querySelectorAll('[data-range]')){let didCapture=false;const start=()=>{if(!didCapture){snapshot();didCapture=true}};range.addEventListener('pointerdown',start);range.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))start()});range.addEventListener('input',()=>{start();state.settings[range.id]=Number(range.value);state.settings.preset='custom';syncControls();scheduleRender()});range.addEventListener('change',()=>{didCapture=false});range.addEventListener('blur',()=>{didCapture=false})}
+for(const button of document.querySelectorAll('[data-preset]'))button.addEventListener('click',()=>{snapshot();state.settings={...state.settings,brightness:100,contrast:100,saturation:100,warmth:0,vignette:0,blur:0,...presets[button.dataset.preset],preset:button.dataset.preset};syncControls();scheduleRender()});
+for(const button of document.querySelectorAll('[data-ratio]'))button.addEventListener('click',()=>{snapshot();state.settings.ratio=button.dataset.ratio;syncControls();scheduleRender()});
+$('rotateLeft').addEventListener('click',()=>{snapshot();state.settings.rotation=(state.settings.rotation+270)%360;scheduleRender()});$('rotateRight').addEventListener('click',()=>{snapshot();state.settings.rotation=(state.settings.rotation+90)%360;scheduleRender()});$('flipBtn').addEventListener('click',()=>{snapshot();state.settings.flip=!state.settings.flip;$('flipBtn').classList.toggle('active',state.settings.flip);scheduleRender()});
+$('resetBtn').addEventListener('click',()=>{snapshot();state.settings=defaultSettings();syncControls();$('flipBtn').classList.remove('active');scheduleRender();toast('Настройки сброшены')});
+$('undoBtn').addEventListener('click',()=>{if(!state.undo.length)return;state.redo.push(JSON.stringify(state.settings));state.settings=JSON.parse(state.undo.pop());syncControls();scheduleRender();updateHistoryButtons()});$('redoBtn').addEventListener('click',()=>{if(!state.redo.length)return;state.undo.push(JSON.stringify(state.settings));state.settings=JSON.parse(state.redo.pop());syncControls();scheduleRender();updateHistoryButtons()});
+const compare=$('compareBtn');const setCompare=val=>{state.compare=val;$('beforeLabel').style.display=val?'block':'none';scheduleRender()};compare.addEventListener('pointerdown',e=>{e.preventDefault();compare.setPointerCapture?.(e.pointerId);setCompare(true)});for(const ev of ['pointerup','pointercancel','lostpointercapture','pointerleave'])compare.addEventListener(ev,()=>setCompare(false));compare.addEventListener('click',e=>{if(e.detail===0){setCompare(!state.compare);toast(state.compare?'Показан оригинал':'Показана обработка')}});
+function updateRecents(){const list=$('recentList');list.replaceChildren();if(!state.exports.length){list.innerHTML='<div class="empty"><div class="emoji">▤</div><h3>Пока пусто</h3><p>Обработайте фотографию и нажмите «Сохранить».</p></div>';return}for(const item of state.exports){const el=document.createElement('div');el.className='recent';const one=document.createElement('div');const two=document.createElement('strong');two.textContent='✓ '+item.name;const date=document.createElement('small');date.textContent=item.time;one.append(two,date);el.append(one);list.append(el)}}
+$('exportBtn').addEventListener('click',async()=>{if(!state.src){toast('Сначала добавьте фото');return}const btn=$('exportBtn');btn.disabled=true;btn.textContent='Сохраняем...';try{const out=document.createElement('canvas');renderTo(out,Number($('exportSize').value),false);const mime=$('format').value;const blob=await new Promise((ok,err)=>out.toBlob(v=>v?ok(v):err(new Error('Невозможно создать файл')),mime,.94));const clean=state.filename.replace(/\.[^.]+$/,'').slice(0,55)||'photo',name=`PHOTO_MAGIC_${clean}_${Date.now()}.${mime==='image/png'?'png':'jpg'}`;const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),60000);state.exports.unshift({name,time:new Date().toLocaleString('ru-RU')});updateRecents();toast('Готово! Файл отправлен в загрузки устройства.')}catch(e){console.error(e);toast('Не удалось сохранить. Попробуйте меньший файл.')}finally{btn.disabled=false;btn.textContent='↓ Сохранить'}});
+window.addEventListener('dragover',e=>e.preventDefault());window.addEventListener('drop',e=>{e.preventDefault();if(e.dataTransfer?.files?.length)handleFile(e.dataTransfer.files[0])});
+// 30 AI tools defined in manifest and embedded for offline catalog display
+const aiTools=[{"id":"enhance","icon":"✨","title":"AI Автоулучшение","category":"Качество","description":"Свет, цвет, баланс белого и естественная резкость за одно действие.","credits":1,"default_prompt":"Сбалансированно улучшить качество фото, сохранив естественную текстуру и все лица без изменения.","engine":"enhance","input_type":"photo","requires_server":true},{"id":"upscale","icon":"🔍","title":"Увеличение до 4K","category":"Качество","description":"Повышение разрешения и детализации без чрезмерной дорисовки.","credits":3,"default_prompt":"Увеличить разрешение и улучшить детали без изменения идентичности, надписей и структуры кадра.","engine":"super_resolution","input_type":"photo","requires_server":true},{"id":"denoise","icon":"🌙","title":"Удаление шума","category":"Качество","description":"Убирает зерно с ночных и телефонных фотографий.","credits":1,"default_prompt":"Удалить цифровой шум, сохранив естественную текстуру кожи и мелкие детали.","engine":"restoration","input_type":"photo","requires_server":true},{"id":"deblur","icon":"🎯","title":"Устранение размытия","category":"Качество","description":"Уменьшение смаза от движения и неудачного фокуса.","credits":2,"default_prompt":"Аккуратно уменьшить смаз и размытие без изменения анатомии и лиц.","engine":"restoration","input_type":"photo","requires_server":true},{"id":"night","icon":"🌃","title":"Ночное фото HD","category":"Качество","description":"Осветление тёмного кадра с контролем бликов и шумов.","credits":2,"default_prompt":"Улучшить ночную фотографию, сохранить реалистичные источники света, снизить шум и клиппинг.","engine":"enhance","input_type":"photo","requires_server":true},{"id":"old-photo","icon":"🕰️","title":"Реставрация старых фото","category":"Реставрация","description":"Сохраняет атмосферу архивного снимка, восстанавливает повреждения.","credits":3,"default_prompt":"Восстановить видимые физические дефекты и выцветание, не придумывать новые черты лица.","engine":"restoration","input_type":"photo","requires_server":true},{"id":"scratches","icon":"🪡","title":"Удаление царапин","category":"Реставрация","description":"Ретуширует заломы, пыль и трещины на скане.","credits":2,"default_prompt":"Удалить царапины и пыль с бумажной фотографии, максимально сохранив оригинальное содержание.","engine":"inpainting","input_type":"photo","requires_server":true},{"id":"colorize","icon":"🎨","title":"Оживление ч/б","category":"Реставрация","description":"Раскрашивает чёрно-белые фотографии в естественных тонах.","credits":2,"default_prompt":"Аккуратно колоризовать чёрно-белую фотографию; цвета являются реконструкцией, фактические оттенки неизвестны.","engine":"colorization","input_type":"photo","requires_server":true},{"id":"fade","icon":"🌈","title":"Восстановление цвета","category":"Реставрация","description":"Коррекция выцветших, пожелтевших и неравномерных цветов.","credits":1,"default_prompt":"Устранить выцветание и цветные пятна старого фото, не менять сюжет и лица.","engine":"restoration","input_type":"photo","requires_server":true},{"id":"face-restore","icon":"🧩","title":"Детали старого портрета","category":"Реставрация","description":"Осторожное восстановление деталей лица на повреждённых сканах.","credits":3,"default_prompt":"Восстановить только утерянные детали старого фото без создания новой личности. При неопределенности сохранить размытость.","engine":"face_restoration","input_type":"portrait","requires_server":true},{"id":"remove-bg","icon":"🧼","title":"Удаление фона","category":"Фон и свет","description":"Вырезает человека или предмет с сохранением краёв и волос.","credits":2,"default_prompt":"Отделить основной объект от фона, аккуратно сохранить волосы, руки, аксессуары и полупрозрачные края.","engine":"segmentation","input_type":"photo","requires_server":true},{"id":"replace-bg","icon":"🏙️","title":"Замена фона","category":"Фон и свет","description":"Создаёт новый фон по описанию, сохраняя человека исходным.","credits":3,"default_prompt":"Заменить исключительно фон. Не изменять лицо, тело, одежду и позу субъекта.","engine":"inpainting","input_type":"background","requires_server":true},{"id":"blur-bg","icon":"📷","title":"Боке и глубина","category":"Фон и свет","description":"Портретное размытие фона без размытия самого человека.","credits":1,"default_prompt":"Размыть только фон с естественной глубиной резкости; объект и лицо оставить неизменными.","engine":"segmentation","input_type":"background","requires_server":true},{"id":"studio-light","icon":"💡","title":"Студийное освещение","category":"Фон и свет","description":"Мягкий профессиональный свет без пластиковой кожи.","credits":2,"default_prompt":"Изменить освещение фото, сохраняя структуру кожи и идентичность лица без ретуши формы.","engine":"relighting","input_type":"photo","requires_server":true},{"id":"sky","icon":"☁️","title":"Замена неба","category":"Фон и свет","description":"Меняет небо, согласует свет и отражения.","credits":2,"default_prompt":"Изменить только область неба, согласовать освещение окружения, остальные объекты не трогать.","engine":"inpainting","input_type":"background","requires_server":true},{"id":"erase","icon":"🪄","title":"Волшебный ластик","category":"Объекты","description":"Удаление ненужных предметов с восстановлением фона.","credits":2,"default_prompt":"Удалить отмеченный предмет и естественно восстановить закрытую им область.","engine":"inpainting","input_type":"mask","requires_server":true},{"id":"crowd","icon":"🚶","title":"Убрать прохожих","category":"Объекты","description":"Удаляет людей на заднем плане, оставляя главного героя.","credits":2,"default_prompt":"Удалить указанных людей на заднем плане, главного человека не менять.","engine":"inpainting","input_type":"mask","requires_server":true},{"id":"replace-item","icon":"🛋️","title":"Заменить предмет","category":"Объекты","description":"По текстовому описанию меняет выделенный предмет.","credits":3,"default_prompt":"Изменить только выделенный предмет на указанный пользователем. Не менять остальной кадр.","engine":"inpainting","input_type":"mask","requires_server":true},{"id":"expand","icon":"↔️","title":"Расширение кадра","category":"Объекты","description":"Достраивает края фото под 9:16, 16:9 и другие форматы.","credits":3,"default_prompt":"Расширить изображение за исходные границы, не изменяя существующие пиксели.","engine":"outpainting","input_type":"photo","requires_server":true},{"id":"wires","icon":"🧹","title":"Убрать провода","category":"Объекты","description":"Удаляет провода и мелкие отвлекающие объекты.","credits":2,"default_prompt":"Убрать указанные провода и мелкие отвлекающие объекты, не изменяя архитектуру и людей.","engine":"inpainting","input_type":"mask","requires_server":true},{"id":"retouch","icon":"🪞","title":"Естественная ретушь","category":"Люди и стиль","description":"Смягчение мелких дефектов без изменения черт лица.","credits":2,"default_prompt":"Очень деликатная ретушь временных дефектов. Не изменять кожу до пластиковой, черты лица и возраст.","engine":"portrait_retouche","input_type":"portrait","requires_server":true},{"id":"spots","icon":"🌿","title":"Убрать временные дефекты","category":"Люди и стиль","description":"Точечное удаление прыщиков и случайных пятен.","credits":2,"default_prompt":"Удалить только отмеченные временные дефекты кожи без изменения текстуры, тона и уникальных черт.","engine":"inpainting","input_type":"mask","requires_server":true},{"id":"red-eye","icon":"👁️","title":"Исправить красные глаза","category":"Люди и стиль","description":"Убирает эффект вспышки, сохраняя настоящие глаза.","credits":1,"default_prompt":"Исправить только красный рефлекс в зрачках без изменения формы глаз и цвета радужки.","engine":"portrait_retouche","input_type":"portrait","requires_server":true},{"id":"outfit","icon":"🧥","title":"Виртуальная примерка","category":"Люди и стиль","description":"Смена одежды на фотографии с сохранением человека.","credits":4,"default_prompt":"Заменить только одежду на указанную пользователем. Сохранить лицо, кожу, руки, позу и пропорции человека.","engine":"virtual_try_on","input_type":"reference","requires_server":true},{"id":"hair","icon":"💇","title":"Смена причёски","category":"Люди и стиль","description":"Новая причёска без изменения лица или линии черепа.","credits":3,"default_prompt":"Изменить только причёску по указанию пользователя. Полностью сохранить оригинальные черты лица.","engine":"inpainting","input_type":"portrait","requires_server":true},{"id":"recolor","icon":"👕","title":"Перекраска одежды","category":"Для контента","description":"Меняет цвет одежды без изменения ткани и кроя.","credits":2,"default_prompt":"Изменить только цвет указанных предметов одежды. Сохранить их фактуру, лицо и тело.","engine":"inpainting","input_type":"photo","requires_server":true},{"id":"product-cut","icon":"🛍️","title":"Фото товара на белом","category":"Для контента","description":"Белый фон для карточек товара и маркетплейсов.","credits":2,"default_prompt":"Создать чистый белый фон товара без изменения самого предмета и логотипов.","engine":"product_photo","input_type":"photo","requires_server":true},{"id":"product-scene","icon":"🏷️","title":"Рекламная предметка","category":"Для контента","description":"Студийная сцена и тени для фотографии продукта.","credits":3,"default_prompt":"Создать реалистичную предметную студию с корректными тенями. Не изменять свойства и надписи товара.","engine":"product_photo","input_type":"photo","requires_server":true},{"id":"headshot","icon":"👔","title":"Деловой портрет","category":"Для контента","description":"Нейтральный профессиональный фон и свет для резюме.","credits":3,"default_prompt":"Сделать деловой портрет, изменив только фон, свет и указанную одежду. Лицо строго исходное.","engine":"portrait_edit","input_type":"portrait","requires_server":true},{"id":"poster","icon":"🎬","title":"Постер из фото","category":"Для контента","description":"Обложка для соцсетей с заголовком и композиционной рамкой.","credits":3,"default_prompt":"Создать постер из исходного фото с текстом пользователя; лицо и главный объект оставить узнаваемыми.","engine":"composition","input_type":"photo","requires_server":true}];
+const aiCategories=["Все", "Качество", "Реставрация", "Фон и свет", "Объекты", "Люди и стиль", "Для контента"];
+let aiTaskDescription='';
+function createElement(tag,cl,text){const el=document.createElement(tag);if(cl)el.className=cl;if(text!==undefined)el.textContent=text;return el;}
+function renderAiCatalog(){
+  const selected=state.aiCategory,query=$('aiSearch').value.trim().toLocaleLowerCase('ru');
+  const filters=$('aiFilters');filters.replaceChildren();
+  for(const cat of aiCategories){const b=createElement('button',cat===selected?'ai-filter active':'ai-filter',cat);b.type='button';b.setAttribute('aria-pressed',String(cat===selected));b.addEventListener('click',()=>{state.aiCategory=cat;renderAiCatalog()});filters.append(b)}
+  const matches=aiTools.filter(t=>(selected==='Все'||t.category===selected)&&(!query||[t.title,t.category,t.description].some(v=>v.toLocaleLowerCase('ru').includes(query))));
+  $('aiCount').textContent=`Показано ${matches.length} из 30`;$('aiEmpty').classList.toggle('hidden',!!matches.length);
+  const grid=$('aiGrid');grid.replaceChildren();
+  for(const t of matches){
+    const card=createElement('button','ai-toolcard');card.type='button';card.dataset.aiTool=t.id;
+    const top=createElement('div','ai-cardtop');top.append(createElement('span','ai-toolico',t.icon),createElement('span','ai-mini-label',`${t.credits} кр.`));
+    card.append(top,createElement('span','ai-cardcat',t.category),createElement('strong','',t.title),createElement('span','ai-carddesc',t.description),createElement('span','ai-cardaction','Настроить →'));
+    grid.append(card);
+  }
+}
+function refreshAiPreview(){const img=$('aiPreview');if(!img)return;if(state.src){img.src=state.src.src;img.alt='Фото '+state.filename;$('aiPreviewName').textContent=state.filename}else{img.removeAttribute('src');$('aiPreviewName').textContent='Фотография не загружена'}}
+function openAiTool(id){
+  const t=aiTools.find(t=>t.id===id);if(!t)return;state.aiSelected=t;
+  $('aiModalTitle').textContent=t.icon+' '+t.title;$('aiModalCategory').textContent=t.category;$('aiModalDesc').textContent=t.description;
+  $('aiPrompt').value=t.default_prompt;$('aiCreditCost').textContent=`Предварительно: ${t.credits} ИИ-кредит(а) · без списания`;
+  $('aiRequestResult').classList.add('hidden');refreshAiPreview();$('aiDialog').classList.remove('hidden');$('aiDialog').setAttribute('aria-hidden','false');document.body.classList.add('ai-dialog-open');$('aiPrompt').focus();
+}
+function closeAiTool(){$('aiDialog').classList.add('hidden');$('aiDialog').setAttribute('aria-hidden','true');document.body.classList.remove('ai-dialog-open')}
+$('aiSearch').addEventListener('input',renderAiCatalog);
+$('aiGrid').addEventListener('click',e=>{const card=e.target.closest('[data-ai-tool]');if(card)openAiTool(card.dataset.aiTool)});
+document.querySelectorAll('[data-close-ai]').forEach(b=>b.addEventListener('click',closeAiTool));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('aiDialog').classList.contains('hidden'))closeAiTool()});
+$('aiPickPhoto').addEventListener('click',()=>{closeAiTool();go('ai');$('fileInput').click()});
+$('aiGoEditor').addEventListener('click',()=>{closeAiTool();go('editor')});
+$('aiPrepare').addEventListener('click',()=>{
+ if(!state.aiSelected)return;
+ const t=state.aiSelected;
+ aiTaskDescription=`PHOTO MAGIC AI — ${t.title}
+Категория: ${t.category}
+ИИ-модуль: ${t.engine}
+Фотография: ${state.filename||'не выбрана'}
+Инструкция: ${$('aiPrompt').value.trim()||t.default_prompt}
+Сила: ${$('aiStrength').selectedOptions[0].textContent}
+Качество: ${$('aiQuality').selectedOptions[0].textContent}
+Сохранить уникальные черты лица: обязательно
+Примечание: генеративный результат требует проверки и может отличаться от оригинала.`;
+ $('aiRequestResult').classList.remove('hidden');toast('Параметры подготовлены. Серверная генерация пока недоступна.');
+});
+$('aiCopy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(aiTaskDescription);toast('Описание задачи скопировано')}catch(e){const inp=document.createElement('textarea');inp.value=aiTaskDescription;document.body.append(inp);inp.select();document.execCommand('copy');inp.remove();toast('Описание задачи скопировано')}});
+renderAiCatalog();
+
+
+function drawOfflineDecorations(c,w,h,s){
+ const scale=Math.max(1,w/1200),gap=Math.max(4,Math.round(Math.min(w,h)*.035));
+ if(s.frame && s.frame!=='none'){
+  c.save();c.lineWidth=gap;
+  if(s.frame==='white'||s.frame==='black'){
+   c.strokeStyle=s.frame==='white'?'#ffffff':'#07090e';c.strokeRect(gap/2,gap/2,w-gap,h-gap);
+  }else if(s.frame==='film'){
+   c.strokeStyle='#07080c';c.lineWidth=gap*1.6;c.strokeRect(gap*.8,gap*.8,w-gap*1.6,h-gap*1.6);
+   c.fillStyle='#e1dfd0';const hole=gap*.4;for(let x=gap*2;x<w-gap*2;x+=gap*1.9){c.fillRect(x,gap*.35,hole,hole*.7);c.fillRect(x,h-gap*.35-hole*.7,hole,hole*.7)}
+  }else if(s.frame==='polaroid'){
+   c.strokeStyle='#ffffff';c.lineWidth=gap*1.4;c.strokeRect(gap*.7,gap*.7,w-gap*1.4,h-gap*1.4);
+   c.fillStyle='#faf9f5';c.fillRect(0,h-gap*1.6,w,gap*1.6);
+  }
+  c.restore();
+ }
+ if(s.overlayText){
+  const txt=s.overlayText.trim();if(!txt)return;
+  const fontsize=Math.max(13,Math.round((s.overlaySize||42)*Math.min(w,h)/800));
+  c.save();c.font=`900 ${fontsize}px system-ui, Arial, sans-serif`;c.textAlign='center';c.textBaseline='middle';
+  c.fillStyle=s.overlayColor||'#ffffff';c.shadowColor='#000b';c.shadowBlur=fontsize*.25;c.shadowOffsetY=2*scale;
+  const lineHeight=fontsize*1.16;const maxWidth=w*.85;
+  let lines=[''];for(const word of txt.split(/\s+/)){let current=lines[lines.length-1];let next=current?current+' '+word:word;if(c.measureText(next).width>maxWidth && current && lines.length<4)lines.push(word);else lines[lines.length-1]=next}
+  const center=s.overlayPos==='top'?h*.13:s.overlayPos==='middle'?h*.5:h*.84;
+  const top=center-(lines.length-1)*lineHeight/2;
+  lines.forEach((l,i)=>{c.strokeStyle='#0d1020a0';c.lineWidth=Math.max(2,fontsize*.07);c.strokeText(l,w/2,top+i*lineHeight,maxWidth);c.fillText(l,w/2,top+i*lineHeight,maxWidth)});
+  c.restore();
+ }
+}
+function syncDecorControls(){
+ const s=state.settings;$('overlayText').value=s.overlayText??'';$('overlayColor').value=s.overlayColor??'#ffffff';$('overlaySize').value=s.overlaySize??42;
+ document.querySelectorAll('[data-text-pos]').forEach(b=>b.classList.toggle('active',b.dataset.textPos===(s.overlayPos||'bottom')));
+ document.querySelectorAll('[data-frame]').forEach(b=>b.classList.toggle('active',b.dataset.frame===(s.frame||'none')));
+}
+let overlaySnapshot=false;
+$('overlayText').addEventListener('focus',()=>{snapshot();overlaySnapshot=true});
+$('overlayText').addEventListener('input',e=>{state.settings.overlayText=e.target.value;scheduleRender()});
+$('overlayColor').addEventListener('input',e=>{state.settings.overlayColor=e.target.value;scheduleRender()});
+$('overlayColor').addEventListener('focus',()=>snapshot());$('overlayColor').addEventListener('change',()=>scheduleRender());
+$('overlaySize').addEventListener('pointerdown',()=>snapshot());
+$('overlaySize').addEventListener('input',e=>{state.settings.overlaySize=Number(e.target.value);scheduleRender()});
+for(const b of document.querySelectorAll('[data-text-pos]'))b.addEventListener('click',()=>{snapshot();state.settings.overlayPos=b.dataset.textPos;syncDecorControls();scheduleRender()});
+for(const b of document.querySelectorAll('[data-frame]'))b.addEventListener('click',()=>{snapshot();state.settings.frame=b.dataset.frame;syncDecorControls();scheduleRender()});
+for(const b of document.querySelectorAll('[data-sticker]'))b.addEventListener('click',()=>{snapshot();state.settings.overlayText=(state.settings.overlayText||'')+b.dataset.sticker;syncDecorControls();scheduleRender()});
+
+/* offline effects library initialization */
+/* Offline PHOTO MAGIC LAB · 480 actual canvas effects (16 families × 30 distinct recipes). */
+const fxFamilies=[
+ {id:'cinema',name:'Кино',icon:'🎬',mode:'split',r:[27,126,171],s:100,c:118,v:18},
+ {id:'film',name:'Плёнка',icon:'🎞️',mode:'grain',r:[231,171,115],s:88,c:106,v:22},
+ {id:'mono',name:'Ч/Б',icon:'◐',mode:'mono',r:[214,207,194],s:0,c:124,v:12},
+ {id:'portrait',name:'Портрет',icon:'🪞',mode:'soft',r:[244,173,157],s:92,c:95,v:4},
+ {id:'vintage',name:'Ретро',icon:'📷',mode:'sepia',r:[190,136,83],s:77,c:102,v:26},
+ {id:'neon',name:'Неон',icon:'💠',mode:'neon',r:[205,69,235],s:145,c:118,v:15},
+ {id:'cyber',name:'Киберпанк',icon:'🌆',mode:'duo',r:[33,203,226],s:130,c:127,v:16},
+ {id:'pastel',name:'Пастель',icon:'🪷',mode:'pastel',r:[206,167,228],s:79,c:88,v:1},
+ {id:'dramatic',name:'Драма',icon:'⚡',mode:'contrast',r:[68,114,157],s:96,c:148,v:35},
+ {id:'sun',name:'Золото',icon:'☀️',mode:'gold',r:[252,185,72],s:120,c:109,v:12},
+ {id:'winter',name:'Холод',icon:'❄️',mode:'cold',r:[102,168,228],s:95,c:113,v:18},
+ {id:'nature',name:'Природа',icon:'🌿',mode:'nature',r:[84,168,105],s:129,c:107,v:8},
+ {id:'matte',name:'Матовые',icon:'🪨',mode:'matte',r:[189,158,139],s:86,c:91,v:2},
+ {id:'duotone',name:'Дуотон',icon:'🎨',mode:'duotone',r:[119,86,198],s:113,c:127,v:5},
+ {id:'pop',name:'Поп-арт',icon:'🌈',mode:'poster',r:[247,86,148],s:151,c:145,v:2},
+ {id:'glitch',name:'Глитч',icon:'📺',mode:'glitch',r:[80,210,196],s:120,c:131,v:8}
+];
+const fxVariants=[
+'Рассвет','Золотой час','Глубина','Тихий вечер','Север','Мягкий свет','Полнолуние','Шёлк','Янтарь','Туман',
+'Полночь','Небосвод','Бархат','Серебро','Солнечный блик','Дождь','Океан','Рубин','Мятный','Лазурь',
+'Тени','Атмосфера','Лунная ночь','Лаванда','Магия','Сияние','Контур','Горизонт','Пульс','Сумерки'
+];
+const fxAll=fxFamilies.flatMap((f,fi)=>fxVariants.map((v,i)=>({id:`${f.id}-${i+1}`,title:v,full:`${f.name} · ${v}`,family:f.id,fi,vi:i,number:fi*30+i+1})));
+const fxById=new Map(fxAll.map(p=>[p.id,p]));
+let fxCat='all',fxFavoritesOnly=false,fxVisible=48,fxObserver=null,fxBaseline=null,fxModalOpen=false,fxOriginalSettings=null;
+let fxFavoriteIds=new Set();
+try{const cache=JSON.parse(localStorage.getItem('photo-magic-favorites-v03')||'[]');if(Array.isArray(cache))fxFavoriteIds=new Set(cache.filter(x=>fxById.has(x)))}catch(e){}
+function clampFx(v){return v<0?0:v>255?255:v}
+function effectConfig(id){
+ const p=fxById.get(id);if(!p)return null;
+ const f=fxFamilies[p.fi],i=p.vi;
+ const sinus=Math.sin(i*2.399963),cosinus=Math.cos(i*.89);
+ const shift=((i%5)-2)*6, light=(Math.floor(i/5)-2.5)*4;
+ const t={mode:f.mode,r:f.r,s:Math.max(0, f.s+shift*1.7),c:f.c+((i%6)-2.5)*5.2,
+  brightness:light+cosinus*3,warm:(i%7-3)*5,grain:(f.mode==='grain'||f.mode==='sepia'||f.mode==='mono')?(3+(i%6)*2.2):0,
+  vignette:Math.max(0,f.v+(i%4)*2), tint:10+(i%5)*4, hue:(i%9-4)*3.2,
+  fade:(f.mode==='matte'?15: f.mode==='film'?7: f.mode==='pastel'?10:0)+(i%5)*1.6,
+  levels:3+(i%5), shift:(i%3)+1, variant:i, base:f
+ };
+ if(i%4===1){t.r=[f.r[1],f.r[2],f.r[0]]}
+ if(i%4===2){t.r=[f.r[2],f.r[0],f.r[1]]}
+ if(i%4===3){t.r=[Math.round((f.r[0]+245)/2),Math.round((f.r[1]+130)/2),Math.round((f.r[2]+200)/2)]}
+ return t;
+}
+function applyOfflineEffect(c,w,h,id,intensity){
+ const o=effectConfig(id);if(!o||intensity<=0)return;
+ const k=Math.min(1,Math.max(0,intensity/100));
+ let frame;try{frame=c.getImageData(0,0,w,h)}catch(err){return}
+ const pix=frame.data,orig=new Uint8ClampedArray(pix),r0=o.r[0],g0=o.r[1],b0=o.r[2];
+ const contrast=o.c/100, sat=o.s/100;
+ const weightR=.2126,weightG=.7152,weightB=.0722;
+ const light=o.brightness*1.45;
+ const w2=w/2,h2=h/2;
+ for(let yy=0;yy<h;yy++){
+  const yr=(yy-h2)/Math.max(h2,1);
+  for(let xx=0;xx<w;xx++){
+   const n=(yy*w+xx)*4;
+   const R=orig[n],G=orig[n+1],B=orig[n+2];
+   const luma=R*weightR+G*weightG+B*weightB;
+   let r=luma+(R-luma)*sat,g=luma+(G-luma)*sat,b=luma+(B-luma)*sat;
+   r=(r-127)*contrast+127+light;
+   g=(g-127)*contrast+127+light;
+   b=(b-127)*contrast+127+light;
+   const tint=o.tint/100,shade=luma/255;
+   if(o.mode==='mono'){
+      let lm=luma*contrast+light+(iNoise(xx,yy,o.variant)-.5)*o.grain;
+      const sep=(o.variant%3)/100;
+      r=lm*(1+sep);g=lm;b=lm*(1-sep*2);
+   }else if(o.mode==='sepia'){
+      const m=(r+g+b)/3;r=m*.98+27+((r0-200)/18);g=m*.92+12;b=m*.75-8;
+   }else if(o.mode==='duotone'||o.mode==='duo'){
+      const strength=o.mode==='duotone'?.82:.34;
+      const lo=[Math.max(0,255-r0),Math.max(0,255-g0),Math.max(0,255-b0)];
+      const pos=Math.max(0,Math.min(1,(luma-12)/230));
+      r=r*(1-strength)+(lo[0]*(1-pos)+r0*pos)*strength;
+      g=g*(1-strength)+(lo[1]*(1-pos)+g0*pos)*strength;
+      b=b*(1-strength)+(lo[2]*(1-pos)+b0*pos)*strength;
+   }else if(o.mode==='poster'){
+      const step=255/(o.levels-1);r=Math.round(r/step)*step;g=Math.round(g/step)*step;b=Math.round(b/step)*step;
+   }else if(o.mode==='glitch'){
+      const stripe=(Math.floor(yy/((o.variant%6)+3))%5)===0;
+      const shift=o.shift*3;
+      const ri=Math.min(w-1,xx+shift),bi=Math.max(0,xx-shift);
+      r=orig[(yy*w+ri)*4];b=orig[(yy*w+bi)*4+2];
+      if(stripe){r*=.87;g*=.89;b*=1.15}
+   }else if(o.mode==='neon'){
+      const m=Math.max(r,g,b),boost=1.12+o.variant%4*.04;
+      r=(r-m*.08)*boost+(r0-110)*.13;g=(g-m*.08)*boost+(g0-110)*.13;b=(b-m*.08)*boost+(b0-110)*.13;
+   }else if(o.mode==='matte'||o.mode==='pastel'||o.mode==='soft'){
+      const f=o.fade;r=r*(1-f/100)+f*1.3;g=g*(1-f/100)+f*1.27;b=b*(1-f/100)+f*1.15;
+   }
+   if(['split','gold','cold','nature','contrast','grain','soft','pastel','matte','neon','sepia'].includes(o.mode)){
+    const amt=(o.mode==='gold'||o.mode==='cold'||o.mode==='neon'?0.19:0.09)*tint/0.18;
+    const high=shade>0.5?(shade-.5)*2:.12;
+    const low=shade<.5?(.5-shade)*2:0;
+    r+= (r0-140)*amt*high - (b0-100)*.05*low;
+    g+= (g0-140)*amt*high;
+    b+= (b0-140)*amt*high + (o.mode==='split'?14*low:0);
+   }
+   if(o.mode==='nature'){g+= (G-Math.min(R,B))*.06}
+   if(o.mode==='gold'){r+=13;g+=5;b-=8}
+   if(o.mode==='cold'){r-=8;b+=12}
+   const warm=o.warm;r+=warm*.53;b-=warm*.54;
+   if(o.grain && o.mode!=='mono'){const grain=(iNoise(xx,yy,o.variant)-.5)*o.grain;r+=grain;g+=grain;b+=grain}
+   if(o.vignette){const nx=(xx-w2)/Math.max(1,w2),dist=nx*nx+yr*yr;const dark=Math.max(0,dist-.18)*o.vignette*.42;r-=dark;g-=dark;b-=dark}
+   pix[n]=clampFx(R*(1-k)+r*k);pix[n+1]=clampFx(G*(1-k)+g*k);pix[n+2]=clampFx(B*(1-k)+b*k);
+  }
+ }
+ c.putImageData(frame,0,0);
+}
+// Repeatable grain: no random network dependencies, no external assets.
+function iNoise(x,y,seed){const v=Math.sin(x*12.9898+y*78.233+seed*37.719)*43758.5453;return v-Math.floor(v)}
+function syncFxControls(){
+ if(!$('fxStrength'))return;
+ $('fxStrength').value=state.settings.effectIntensity??75;
+ $('fxStrengthOut').textContent=`${state.settings.effectIntensity??75}%`;
+ const active=fxById.get(state.settings.effectId);
+ $('fxCurrent').textContent=active?active.full:'Оригинальная фотография';
+ $('fxDetails').textContent=active?active.full:'Выбирай свой стиль';
+}
+function fxRenderMain(){scheduleRender();if(fxModalOpen)renderTo($('fxPreview'),630,false)}
+function fxOpen(){
+ fxOriginalSettings=JSON.stringify(state.settings);fxModalOpen=true;fxCat='all';fxFavoritesOnly=false;fxVisible=48;
+ $('fxSearch').value='';$('fxOnlyFav').classList.remove('active');$('fxOnlyFav').setAttribute('aria-pressed','false');
+ $('fxModal').classList.remove('hidden');$('fxModal').setAttribute('aria-hidden','false');document.body.classList.add('fx-open');
+ syncFxControls();fxRenderFilters();fxRenderGallery();fxRenderMain();
+}
+function fxClose(commit=false){
+ if(!fxModalOpen)return;
+ const picked=JSON.stringify(state.settings);
+ state.settings=JSON.parse(fxOriginalSettings);
+ if(commit&&picked!==fxOriginalSettings){snapshot();state.settings=JSON.parse(picked);toast('Эффект применён. Можно сохранить фото.')}else if(!commit)toast('Изменения эффекта отменены');
+ fxModalOpen=false;$('fxModal').classList.add('hidden');$('fxModal').setAttribute('aria-hidden','true');document.body.classList.remove('fx-open');
+ fxObserver?.disconnect();fxObserver=null;fxOriginalSettings=null;syncControls();scheduleRender();
+}
+function fxPick(id){
+ if(!fxById.has(id))return;
+ state.settings.effectId=id;
+ if(state.settings.effectIntensity===0)state.settings.effectIntensity=75;
+ syncFxControls();
+ document.querySelectorAll('.fx-card').forEach(x=>x.classList.toggle('active',x.dataset.fxId===id));
+ fxRenderMain();
+}
+function fxRenderFilters(){
+ const parent=$('fxCategories');parent.replaceChildren();
+ for(const f of [{id:'all',name:'Все 480',icon:'✦'},...fxFamilies]){
+  const b=createElement('button',`fx-category${f.id===fxCat?' active':''}`,`${f.icon} ${f.name}`);b.type='button';b.setAttribute('aria-pressed',String(f.id===fxCat));b.addEventListener('click',()=>{fxCat=f.id;fxVisible=f.id==='all'?48:30;fxRenderFilters();fxRenderGallery()});parent.append(b);
+ }
+}
+function fxThumbSource(){
+ if(fxBaseline)return fxBaseline;
+ const cv=document.createElement('canvas');cv.width=96;cv.height=96;
+ const cc=cv.getContext('2d',{willReadFrequently:true});
+ const im=state.src;if(!im)return cv;
+ const iw=im.naturalWidth||im.width,ih=im.naturalHeight||im.height,scale=Math.max(96/iw,96/ih);
+ const dw=iw*scale,dh=ih*scale;
+ cc.drawImage(im,(96-dw)/2,(96-dh)/2,dw,dh);fxBaseline=cv;return cv;
+}
+function fxFillThumbnail(cv,id){
+ cv.width=96;cv.height=96;
+ const c=cv.getContext('2d',{willReadFrequently:true});c.drawImage(fxThumbSource(),0,0);
+ applyOfflineEffect(c,96,96,id,82);
+}
+function fxRenderGallery(){
+ fxObserver?.disconnect();fxObserver=null;
+ const search=$('fxSearch').value.trim().toLocaleLowerCase('ru');
+ const matches=fxAll.filter(p=>(fxCat==='all'||p.family===fxCat)&&(!fxFavoritesOnly||fxFavoriteIds.has(p.id))&&(!search||p.full.toLocaleLowerCase('ru').includes(search)||String(p.number)===search));
+ const shown=matches.slice(0,fxVisible),gallery=$('fxGallery');gallery.replaceChildren();
+ if('IntersectionObserver' in window){
+   fxObserver=new IntersectionObserver(entries=>{for(const ent of entries)if(ent.isIntersecting){fxObserver.unobserve(ent.target);fxFillThumbnail(ent.target,ent.target.dataset.effect)}},{root:$('fxGallery').parentNode,rootMargin:'180px'});
+ }
+ for(const p of shown){
+  const card=createElement('button',`fx-card${state.settings.effectId===p.id?' active':''}`);card.type='button';card.dataset.fxId=p.id;
+  const canvas=createElement('canvas');canvas.dataset.effect=p.id;canvas.width=96;canvas.height=96;
+  const fav=createElement('button',`fx-fav${fxFavoriteIds.has(p.id)?' active':''}`,fxFavoriteIds.has(p.id)?'♥':'♡');fav.type='button';fav.setAttribute('aria-label',`Избранное: ${p.full}`);
+  fav.addEventListener('click',e=>{e.stopPropagation();if(fxFavoriteIds.has(p.id))fxFavoriteIds.delete(p.id);else fxFavoriteIds.add(p.id);try{localStorage.setItem('photo-magic-favorites-v03',JSON.stringify([...fxFavoriteIds]))}catch(e){};fav.classList.toggle('active',fxFavoriteIds.has(p.id));fav.textContent=fxFavoriteIds.has(p.id)?'♥':'♡';if(fxFavoritesOnly)fxRenderGallery()});
+  card.append(canvas,createElement('span','fx-card-name',p.title),createElement('span','fx-card-no',`${p.number} / 480`));card.append(fav);
+  card.addEventListener('click',()=>fxPick(p.id));gallery.append(card);
+  if(fxObserver)fxObserver.observe(canvas);else if(shown.length<50)fxFillThumbnail(canvas,p.id);
+ }
+ $('fxMore').classList.toggle('hidden',matches.length<=fxVisible);
+ $('fxMore').textContent=`Показать ещё ${Math.min(48,matches.length-fxVisible)} · осталось ${Math.max(0,matches.length-fxVisible)}`;
+ $('fxEmpty').classList.toggle('hidden',matches.length!==0);
+}
+$('openFx').addEventListener('click',fxOpen);$('openFxTop').addEventListener('click',fxOpen);
+$('closeFx').addEventListener('click',()=>fxClose(false));$('fxCancel').addEventListener('click',()=>fxClose(false));$('fxAccept').addEventListener('click',()=>fxClose(true));
+$('fxClear').addEventListener('click',()=>{state.settings.effectId=null;syncFxControls();fxRenderGallery();fxRenderMain()});
+$('fxStrength').addEventListener('input',e=>{state.settings.effectIntensity=Number(e.target.value);syncFxControls();fxRenderMain()});
+$('fxSearch').addEventListener('input',()=>{fxVisible=48;fxRenderGallery()});
+$('fxOnlyFav').addEventListener('click',()=>{fxFavoritesOnly=!fxFavoritesOnly;fxVisible=48;$('fxOnlyFav').classList.toggle('active',fxFavoritesOnly);$('fxOnlyFav').setAttribute('aria-pressed',String(fxFavoritesOnly));fxRenderGallery()});
+$('fxMore').addEventListener('click',()=>{fxVisible+=48;fxRenderGallery()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&fxModalOpen)fxClose(false)});
+const originalSetSource=setSource;
+setSource=function(img,name){fxBaseline=null;originalSetSource(img,name)};
+window.PHOTO_MAGIC_OFFLINE={count:fxAll.length,categories:fxFamilies.length,recipes:fxAll.map(x=>x.id),applyOfflineEffect};
+
+loadData(drawDemo(),'Демо: горное озеро');updateHistoryButtons();
+if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}))}
+})();
+</script>
+</body>
+</html>
