@@ -1,0 +1,8 @@
+{
+  "appId": "ai.photomagic.studio",
+  "appName": "PHOTO MAGIC AI",
+  "webDir": "web",
+  "server": {
+    "androidScheme": "https"
+  }
+}
