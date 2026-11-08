@@ -1,7 +1,7 @@
 {
   "name": "PHOTO MAGIC AI — Фоторедактор",
   "short_name": "PHOTO MAGIC",
-  "description": "480 офлайн-эффектов и 30 карточек будущих ИИ-инструментов.",
+  "description": "Красочные эффекты, магия и фоторедактор. ИИ подключим позже.",
   "lang": "ru",
   "start_url": "./index.html",
   "scope": "./",

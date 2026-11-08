@@ -1,8 +1,8 @@
 {
   "name": "photo-magic-ai",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
-  "description": "Test Android APK: 480 offline effects and 30 AI tool UI cards (AI backend not yet connected)",
+  "description": "Android photo editor with horizontal swipe toolbar, 480 offline recipes, 30 magic effects and 30 upcoming AI tools",
   "scripts": {
     "android:init": "npx cap add android",
     "android:sync": "npx cap sync android",

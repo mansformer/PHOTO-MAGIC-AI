@@ -41,6 +41,12 @@ jobs:
           npx cap add android
           npx cap sync android
 
+      - name: Add native photo gallery saver
+        run: |
+          mkdir -p android/app/src/main/java/ai/photomagic/studio
+          cp android-native/PhotoMagicSavePlugin.java android/app/src/main/java/ai/photomagic/studio/
+          cp android-native/MainActivity.java android/app/src/main/java/ai/photomagic/studio/
+
       - name: Build debug APK
         run: |
           cd android
