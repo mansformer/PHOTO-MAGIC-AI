@@ -69,6 +69,23 @@ body.fx-open{overflow:hidden}
 
 /* Compact header for phones: all actions must remain inside the screen. */
 @media(max-width:600px){.v4-head{gap:6px;padding:9px 10px}.v4-identity{gap:6px}.v4-logo{height:32px;width:32px;flex-shrink:0}.v4-identity strong{font-size:11px;letter-spacing:-.15px}.v4-identity small{font-size:7px;letter-spacing:1.15px}.v4-head-actions{gap:4px}.v4-hbtn{height:34px;min-width:30px;padding:5px 6px;font-size:15px}.v4-hbtn span{display:none}.v4-save{height:34px;padding:5px 10px;font-size:14px;min-width:35px}.v4-save span{display:none}}
+/* PHOTO MAGIC AI v0.4.1 — Android edge-to-edge system-bar insets */
+@media (max-width:950px){
+ html.photo-native-android{
+   --photo-status-inset:max(30px, env(safe-area-inset-top, 0px));
+   --photo-navigation-inset:max(28px, env(safe-area-inset-bottom, 0px));
+ }
+ html.photo-native-android #page-editor .v4-head{
+   padding:calc(9px + var(--photo-status-inset)) 10px 9px;
+   min-height:calc(68px + var(--photo-status-inset));
+ }
+ html.photo-native-android #page-editor .v4-dock{
+   min-height:calc(225px + var(--photo-navigation-inset));
+   max-height:calc(300px + var(--photo-navigation-inset));
+   padding-bottom:var(--photo-navigation-inset);
+ }
+}
+
 </style>
 </head>
 <body>
@@ -186,6 +203,10 @@ body.fx-open{overflow:hidden}
 <script>
 (() => {
 'use strict';
+  // Capacitor WebView on Android 15/16 may draw edge-to-edge behind system bars.
+  // Keep app branding and tool icons outside the OS status/navigation regions.
+  try { if(window.Capacitor?.getPlatform?.() === 'android') document.documentElement.classList.add('photo-native-android'); } catch (_) {}
+
 const $ = id=>document.getElementById(id);
 const defaultSettings=()=>({brightness:100,contrast:100,saturation:100,warmth:0,vignette:0,blur:0,effectId:null,effectIntensity:75,overlayText:'',overlayColor:'#ffffff',overlaySize:42,overlayPos:'bottom',frame:'none',ratio:'original',rotation:0,flip:false,preset:'original'});
 const presets={original:{},cinema:{brightness:95,contrast:127,saturation:87,warmth:-12,vignette:38},warm:{brightness:108,contrast:108,saturation:113,warmth:38,vignette:10},bw:{brightness:105,contrast:125,saturation:0,warmth:0,vignette:27},vivid:{brightness:105,contrast:118,saturation:157,warmth:8,vignette:8},cold:{brightness:103,contrast:109,saturation:93,warmth:-35,vignette:13}};
