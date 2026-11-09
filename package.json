@@ -1,8 +1,8 @@
 {
   "name": "photo-magic-ai",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
-  "description": "Offline Android photo editor with 430 effects, a single horizontal carousel and separately grouped tools",
+  "description": "Android photo editor with 430 offline effects, bottom section slider and contextual category carousels",
   "scripts": {
     "android:init": "npx cap add android",
     "android:sync": "npx cap sync android",
