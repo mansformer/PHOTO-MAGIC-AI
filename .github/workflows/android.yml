@@ -36,6 +36,21 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Validate UI and AI server JavaScript
+        run: |
+          node --check web/ai-cloud.js
+          node --check api/server.mjs
+          node --check web/service-worker.js
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          html=Path('web/index.html').read_text()
+          scripts=re.findall(r'<script(?:\s[^>]*)?>([\s\S]*?)</script>',html)
+          assert len(scripts)>=1 and any('PHOTO_MAGIC_V05' in x for x in scripts)
+          Path('/tmp/photo-magic-inline.js').write_text(scripts[0])
+          PY
+          node --check /tmp/photo-magic-inline.js
+
       - name: Initialize Android project
         run: |
           npx cap add android
