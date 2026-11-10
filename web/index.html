@@ -208,6 +208,7 @@ body.fx-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){#page-editor.studio-v07 *{scroll-behavior:auto!important;transition:none!important}}
 
 </style>
+<link rel="stylesheet" href="./restore-layout.css" />
 </head>
 <body>
 <div class="app">
@@ -1161,6 +1162,16 @@ window.PHOTO_MAGIC_V05={version:'0.5.0',effects:v5AllEffects.length,offlineFilte
   };
 })();;
 
+window.PHOTO_MAGIC_RESTORE_DATA={
+ effects:v5AllEffects.map(x=>({id:x.id,name:x.name})),
+ families:fxFamilies.map(x=>({id:x.id,name:x.name,icon:x.icon})),
+ magic:v4Magic.map(x=>({id:x.id,name:x.name})),
+ selectEffect:v4SetEffect,
+ getSource:()=>state.src,
+ getEffect:()=>state.settings.effectId,
+ setIntensity:(value)=>{state.settings.effectIntensity=value;scheduleRender()},
+ clearEffect:()=>{state.settings.effectId=null;state.settings.effectIntensity=85;scheduleRender()}
+};
 window.PHOTO_MAGIC_FREE_BRIDGE={
   getSource:()=>state.src,
   getName:()=>state.filename||'',
@@ -1183,5 +1194,6 @@ if('serviceWorker' in navigator && /^https?:$/.test(location.protocol)){window.a
 </script>
 <script src="./ai-cloud.js"></script>
 <script src="./free-ai.js"></script>
+<script src="./restore-layout.js"></script>
 </body>
 </html>

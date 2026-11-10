@@ -1,0 +1,68 @@
+/* PHOTO MAGIC AI 0.8.2 — original vertically scrolling editor with pinned image. */
+#page-editor.restore-first-layout .v4-dock,
+#page-editor.restore-first-layout .v5-sheet,
+#page-editor.restore-first-layout .v7-ambient-glow,
+#page-editor.restore-first-layout #v7Context,
+#page-editor.restore-first-layout .v7-context,
+#page-editor.restore-first-layout .v7-category-list {display:none!important}
+#page-editor.restore-first-layout .fx-modal{display:none!important}
+#page-editor.restore-first-layout .right-stack{scrollbar-width:thin;scrollbar-color:#665482 #151522;overscroll-behavior-y:contain}
+#page-editor.restore-first-layout .restore-effects{display:flex;flex-direction:column;gap:12px;background:linear-gradient(145deg,#29253e,#181b2a);border:1px solid #5d4c7c;border-radius:18px;padding:15px;min-width:0}
+#page-editor.restore-first-layout .restore-effects h3{margin:0;font-size:16px;color:#f7f0ff}
+#page-editor.restore-first-layout .restore-effects p{margin:0;font-size:12px;line-height:1.5;color:#b5aec7}
+#page-editor.restore-first-layout .restore-chips{display:flex;align-items:center;gap:7px;overflow-x:auto;min-height:43px;scrollbar-width:thin;scrollbar-color:#71639b transparent;overscroll-behavior-x:contain;touch-action:pan-x;padding-bottom:5px}
+#page-editor.restore-first-layout .restore-chip{flex:0 0 auto;white-space:nowrap;padding:9px 12px;background:#252a3e;color:#e1ddec;border:1px solid #464459;border-radius:24px;font-size:12px;font-weight:700}
+#page-editor.restore-first-layout .restore-chip[aria-pressed=true]{color:#161024;border-color:#b994ff;background:linear-gradient(110deg,#c59cff,#81dbda)}
+#page-editor.restore-first-layout .restore-effects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;width:100%;min-width:0}
+#page-editor.restore-first-layout .restore-effect{border:1px solid #4e4862;background:#222537;color:#eae7f5;padding:6px;border-radius:12px;min-width:0;min-height:98px;display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer}
+#page-editor.restore-first-layout .restore-effect[aria-pressed=true]{border-color:#bea0ff;box-shadow:inset 0 0 0 1px #c4a2ff,0 0 15px #b285ff47;background:#383048}
+#page-editor.restore-first-layout .restore-effect canvas{width:100%;height:71px;object-fit:cover;border-radius:8px;background:#333148}
+#page-editor.restore-first-layout .restore-effect small{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;color:inherit}
+#page-editor.restore-first-layout .restore-effect-row{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+#page-editor.restore-first-layout .restore-effect-row label{display:flex;flex:1;min-width:160px;align-items:center;gap:9px;font-size:12px;color:#e5d9ff}
+#page-editor.restore-first-layout .restore-effect-row input{min-width:80px;flex:1;accent-color:#b88eff}
+#page-editor.restore-first-layout .restore-pill{padding:9px 13px;border-radius:10px;border:1px solid #54466f;background:#2d2844;color:#eee4fa;font-weight:700;font-size:12px}
+#page-editor.restore-first-layout .restore-pill:disabled{opacity:.5}
+#page-editor.restore-first-layout .restore-inline-note{font-size:11px;color:#b6b2c3;line-height:1.5}
+#page-editor.restore-first-layout .restore-ai-card{display:flex;gap:10px;align-items:center;justify-content:space-between;background:#2d2445;border:1px solid #67538e;border-radius:13px;padding:12px}
+#page-editor.restore-first-layout .restore-ai-card>span{font-size:25px}
+#page-editor.restore-first-layout .restore-ai-card>div{flex:1;min-width:0}
+#page-editor.restore-first-layout .restore-ai-card b{font-size:13px;color:#faf5ff}
+#page-editor.restore-first-layout .restore-ai-card small{display:block;color:#b9aecb;font-size:10px;margin-top:3px}
+#page-editor.restore-first-layout .restore-ai-card button{padding:11px 13px;background:linear-gradient(110deg,#b596ff,#7bd7d2);color:#161021;border:0;border-radius:11px;font-size:12px;font-weight:800}
+#page-editor.restore-first-layout .restore-card-title{font-weight:900;font-size:16px;color:#f4f0ff}
+#page-editor.restore-first-layout .restore-effects-grid .restore-load-more{grid-column:1/-1;padding:12px}
+#page-editor.restore-first-layout .stagecard{overflow:hidden}
+#page-editor.restore-first-layout .right-stack .controlcard{flex-shrink:0}
+#page-editor.restore-first-layout .right-stack .fx-launch{display:none!important}
+@media(max-width:950px){
+ html,body{overflow:hidden!important;height:100%!important}
+ body .app{height:100dvh!important;overflow:hidden!important}
+ body .content{height:100%!important;overflow:hidden!important;padding:0!important}
+ #page-editor.restore-first-layout{height:100%!important;display:flex!important;flex-direction:column!important;min-height:0!important;overflow:hidden!important}
+ #page-editor.restore-first-layout .v4-head{flex:0 0 auto!important;display:flex!important;position:relative;z-index:4}
+ #page-editor.restore-first-layout .editor-layout{flex:1 1 auto!important;min-height:0!important;height:auto!important;display:flex!important;flex-direction:column!important;gap:0!important;overflow:hidden!important}
+ #page-editor.restore-first-layout .editor-layout>div:first-child{flex:0 0 clamp(185px,39dvh,400px)!important;height:clamp(185px,39dvh,400px)!important;min-height:0!important;display:flex!important;overflow:hidden!important;flex-direction:column!important}
+ #page-editor.restore-first-layout .editor-layout>div:first-child .stagecard{height:100%!important;flex:1 1 auto!important;min-height:0!important;border:0!important;border-radius:0!important;display:flex!important;flex-direction:column!important}
+ #page-editor.restore-first-layout .editor-layout>div:first-child .stage-area{min-height:0!important;flex:1 1 auto!important;height:auto!important;max-height:100%!important;padding:10px 12px!important}
+ #page-editor.restore-first-layout .editor-layout>div:first-child .canvas-wrap{max-width:100%!important;max-height:100%!important;overflow:hidden!important}
+ #page-editor.restore-first-layout .editor-layout>.right-stack{display:flex!important;flex-direction:column!important;flex:1 1 auto!important;height:auto!important;max-height:none!important;min-height:0!important;overflow-x:hidden!important;overflow-y:auto!important;gap:11px!important;padding:15px 13px calc(30px + env(safe-area-inset-bottom))!important;background:#11131f!important;border-top:1px solid #5d4a77!important;-webkit-overflow-scrolling:touch}
+ #page-editor.restore-first-layout .right-stack .controlcard{display:block!important;margin:0!important;border-radius:17px}
+ #page-editor.restore-first-layout .right-stack .presets,#page-editor.restore-first-layout .right-stack .toolbar,#page-editor.restore-first-layout .right-stack .fx-decor{overflow-x:auto!important;flex-wrap:nowrap!important;touch-action:pan-x;scrollbar-width:thin;min-width:0}
+ #page-editor.restore-first-layout .right-stack .presets>* ,#page-editor.restore-first-layout .right-stack .toolbar>*{flex-shrink:0}
+ #page-editor.restore-first-layout .stagehead,#page-editor.restore-first-layout .stagefoot,#page-editor.restore-first-layout .stage-float{display:none!important}
+ #page-editor.restore-first-layout .v4-dock{display:none!important}
+ #page-editor.restore-first-layout .restore-effects-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ #page-editor.restore-first-layout .restore-effects{padding:13px}
+}
+@media(max-width:370px){#page-editor.restore-first-layout .restore-effects-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:951px){
+ #page-editor.restore-first-layout .v4-head,#page-editor.restore-first-layout .v4-dock{display:none!important}
+ #page-editor.restore-first-layout .editor-layout{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(320px,440px)!important;gap:20px!important;align-items:start}
+ #page-editor.restore-first-layout .editor-layout>div:first-child{position:sticky;top:12px;min-width:0}
+ #page-editor.restore-first-layout .editor-layout>.right-stack{display:flex!important;flex-direction:column!important;gap:13px!important;max-height:calc(100dvh - 125px);overflow-y:auto!important;padding:0 10px 18px!important}
+ #page-editor.restore-first-layout .stagehead{display:flex!important}
+ #page-editor.restore-first-layout .stagefoot{display:flex!important}
+ #page-editor.restore-first-layout .stage-area{min-height:360px!important;height:auto!important;max-height:55vh!important}
+ #page-editor.restore-first-layout .right-stack .controlcard{display:block!important}
+}

@@ -1,8 +1,8 @@
 {
   "name": "photo-magic-ai",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "private": true,
-  "description": "PHOTO MAGIC AI Android free local person segmentation, 430 photo effects and optional cloud tools",
+  "description": "Restored original vertical editing menu with pinned photo and preserved 430 offline effects and local AI",
   "scripts": {
     "android:init": "npx cap add android",
     "android:sync": "npx cap sync android",
