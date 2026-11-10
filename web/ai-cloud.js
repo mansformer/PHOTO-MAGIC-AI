@@ -15,8 +15,8 @@
  serverCheck.type='button';serverCheck.className='cloud-server-check';serverCheck.textContent='Проверить сервер';
  section.insertBefore(serverCheck,document.getElementById('cloudInfo'));
  serverCheck.addEventListener('click',async()=>{
-   const base=endpoint.value.trim().replace(/\\/+$/,'');
-   if(!/^https:\\/\\/[a-z0-9.-]+(?::[0-9]+)?$/i.test(base)){saveInfo('Неверный адрес сервера.','error');return;}
+   const base=endpoint.value.trim().replace(/\/+$/,'');
+   if(!/^https:\/\/[a-z0-9.-]+(?::[0-9]+)?$/i.test(base)){saveInfo('Неверный адрес сервера.','error');return;}
    serverCheck.disabled=true;saveInfo('Проверяю подключение к серверу…','neutral');
    const c=new AbortController(),t=setTimeout(()=>c.abort(),10000);
    try{
@@ -28,7 +28,7 @@
    finally{clearTimeout(t);serverCheck.disabled=false;}
  });
  const saveInfo=(message,kind)=>{info.textContent=message;info.dataset.kind=kind||'neutral';};
- try{endpoint.value=localStorage.getItem('photo-magic-ai-server')||'';}catch{}
+ try{endpoint.value=localStorage.getItem('photo-magic-ai-server')||'https://photo-magic-api-production.up.railway.app';}catch{endpoint.value='https://photo-magic-api-production.up.railway.app';}
  endpoint.addEventListener('change',()=>{try{localStorage.setItem('photo-magic-ai-server',endpoint.value.trim());}catch{}});
  tokenField.addEventListener('input',()=>{testToken=tokenField.value;});
  $('cloudReject').addEventListener('click',()=>{resultURL='';preview.classList.add('hidden');$('cloudResultImage').removeAttribute('src');saveInfo('Результат отклонён. Исходное фото не изменено.','neutral');});
