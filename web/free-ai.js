@@ -54,6 +54,7 @@ function loadLibrary(url){
 async function init(){
  if(segmenter)return segmenter;
  if(loading)return loading;
+ if(!document.createElement('canvas').getContext('webgl2')&&!document.createElement('canvas').getContext('webgl'))throw new Error('На этом устройстве отключён WebGL. Для бесплатного ИИ включи аппаратное ускорение или попробуй другой телефон.');
  loading=(async()=>{
   // Models and WASM are included in the Android APK. In standalone browser previews,
   // pinned CDN is used only when the local model files do not exist.

@@ -1,6 +1,6 @@
 {
   "name": "photo-magic-ai",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "private": true,
   "description": "PHOTO MAGIC AI Android free local person segmentation, 430 photo effects and optional cloud tools",
   "scripts": {
