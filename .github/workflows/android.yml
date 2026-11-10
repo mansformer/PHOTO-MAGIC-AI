@@ -36,8 +36,18 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Bundle free local AI model (MediaPipe)
+        run: |
+          mkdir -p web/vendor/selfie_segmentation
+          cp node_modules/@mediapipe/selfie_segmentation/selfie_segmentation* web/vendor/selfie_segmentation/
+          test -s web/vendor/selfie_segmentation/selfie_segmentation.js
+          test -s web/vendor/selfie_segmentation/selfie_segmentation.tflite
+          test -s web/vendor/selfie_segmentation/selfie_segmentation_solution_wasm_bin.wasm
+          du -sh web/vendor/selfie_segmentation
+
       - name: Validate UI and AI server JavaScript
         run: |
+          node --check web/free-ai.js
           node --check web/ai-cloud.js
           node --check api/server.mjs
           node --check web/service-worker.js

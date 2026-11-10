@@ -1,8 +1,8 @@
 {
   "name": "photo-magic-ai",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
-  "description": "Android photo editor with 430 offline effects, bottom section slider and contextual category carousels",
+  "description": "PHOTO MAGIC AI Android free local person segmentation, 430 photo effects and optional cloud tools",
   "scripts": {
     "android:init": "npx cap add android",
     "android:sync": "npx cap sync android",
@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@capacitor/core": "^7.4.0",
-    "@capacitor/android": "^7.4.0"
+    "@capacitor/android": "^7.4.0",
+    "@mediapipe/selfie_segmentation": "0.1.1675465747"
   },
   "devDependencies": {
     "@capacitor/cli": "^7.4.0"
