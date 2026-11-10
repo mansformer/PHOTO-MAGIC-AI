@@ -1,0 +1,15 @@
+#page-editor.restore-first-layout .stage-area{position:relative!important;isolation:isolate}
+#page-editor.restore-first-layout .photo-full-trigger{position:absolute!important;top:14px!important;right:14px!important;z-index:30!important;display:inline-flex!important;align-items:center;gap:6px;max-width:calc(100% - 28px);border-radius:12px;background:#17172ae6;border:1px solid #a98af2;color:#fff;padding:9px 12px;font-size:12px;font-weight:800;box-shadow:0 4px 20px #0808178c;touch-action:manipulation}
+#page-editor.restore-first-layout .photo-full-trigger span:first-child{font-size:18px;line-height:1}
+.photo-full-overlay{position:fixed;inset:0;z-index:1200;background:#070912;display:flex;flex-direction:column;color:#fff;padding:env(safe-area-inset-top,12px) 0 env(safe-area-inset-bottom,12px)}
+.photo-full-overlay.hidden{display:none!important}
+.photo-full-top,.photo-full-bottom{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 14px;background:#151729;flex:0 0 auto}
+.photo-full-top strong{font-size:14px}
+.photo-full-overlay button{border:1px solid #5a4b79;border-radius:11px;padding:10px 12px;background:#302847;color:white;font-size:12px;font-weight:750}
+.photo-full-top button{font-size:18px;min-width:42px}
+.photo-full-view{flex:1;min-height:0;overflow:auto;display:flex;align-items:center;justify-content:center;overscroll-behavior:contain;background:#10121c;background-image:linear-gradient(45deg,#242735 25%,transparent 25%),linear-gradient(-45deg,#242735 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#242735 75%),linear-gradient(-45deg,transparent 75%,#242735 75%);background-size:22px 22px;background-position:0 0,0 11px,11px -11px,-11px 0}
+.photo-full-view canvas{display:block;object-fit:contain;width:100%;height:auto;max-width:100%;max-height:100%}
+.photo-full-bottom{justify-content:center;flex-wrap:wrap;gap:6px}
+.photo-full-bottom #photoFullZoom{font-size:12px;min-width:43px;text-align:center}
+.photo-full-open{overflow:hidden!important}
+@media(max-width:400px){#page-editor.restore-first-layout .photo-full-trigger{font-size:11px;padding:8px 10px}.photo-full-bottom button{padding:9px 8px;font-size:11px}}

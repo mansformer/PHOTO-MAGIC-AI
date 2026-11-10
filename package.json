@@ -1,6 +1,6 @@
 {
   "name": "photo-magic-ai",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "private": true,
   "description": "Restored original vertical editing menu with pinned photo and preserved 430 offline effects and local AI",
   "scripts": {

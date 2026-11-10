@@ -8,9 +8,25 @@
  let testToken='',resultURL='',busy=false,controller=null;
  const section=document.createElement('section');
  section.className='cloud-options';
- section.innerHTML='<div class="cloud-title"><strong>Настройки настоящего ИИ</strong><span>ТЕСТ</span></div><p>ИИ запустится только после подключения сервера. Фотография отправится в облако лишь с твоего согласия.</p><label class="cloud-label">Адрес своего ИИ-сервера <input id="cloudEndpoint" type="url" placeholder="https://your-photo-api.example" autocomplete="url" spellcheck="false"></label><label class="cloud-label">Тестовый пароль сервера <input id="cloudToken" type="password" placeholder="Тестовый пароль" autocomplete="off"></label><div class="cloud-info" id="cloudInfo" role="status">Нет соединения с ИИ-сервером. Офлайн-эффекты доступны без него.</div><label class="cloud-agree"><input id="cloudConsent" type="checkbox"> Я согласен отправить выбранную фотографию на внешний ИИ-сервер для обработки. Результат может отличаться от оригинала.</label><div class="cloud-preview hidden" id="cloudPreviewBox"><p>Готово — проверь лицо и детали. Принять результат?</p><img id="cloudResultImage" alt="Результат ИИ-обработки"><div class="cloud-actions"><button id="cloudAccept" class="cloud-accept" type="button">Использовать в редакторе</button><button id="cloudReject" type="button">Отклонить</button></div></div>';
+ section.innerHTML='<div class="cloud-title"><strong>Настройки настоящего ИИ</strong><span>ТЕСТ</span></div><p>ИИ запустится только после подключения сервера. Фотография отправится в облако лишь с твоего согласия.</p><label class="cloud-label">Адрес своего ИИ-сервера <input id="cloudEndpoint" type="url" placeholder="https://photo-magic-api-production.up.railway.app" autocomplete="url" spellcheck="false"></label><label class="cloud-label">Тестовый пароль сервера <input id="cloudToken" type="password" placeholder="Тестовый пароль" autocomplete="off"></label><div class="cloud-info" id="cloudInfo" role="status">Нет соединения с ИИ-сервером. Офлайн-эффекты доступны без него.</div><label class="cloud-agree"><input id="cloudConsent" type="checkbox"> Я согласен отправить выбранную фотографию на внешний ИИ-сервер для обработки. Результат может отличаться от оригинала.</label><div class="cloud-preview hidden" id="cloudPreviewBox"><p>Готово — проверь лицо и детали. Принять результат?</p><img id="cloudResultImage" alt="Результат ИИ-обработки"><div class="cloud-actions"><button id="cloudAccept" class="cloud-accept" type="button">Использовать в редакторе</button><button id="cloudReject" type="button">Отклонить</button></div></div>';
  run.parentNode.insertBefore(section,run);
  const endpoint=$('cloudEndpoint'),tokenField=$('cloudToken'),consent=$('cloudConsent'),info=$('cloudInfo'),preview=$('cloudPreviewBox');
+ const serverCheck=document.createElement('button');
+ serverCheck.type='button';serverCheck.className='cloud-server-check';serverCheck.textContent='Проверить сервер';
+ section.insertBefore(serverCheck,document.getElementById('cloudInfo'));
+ serverCheck.addEventListener('click',async()=>{
+   const base=endpoint.value.trim().replace(/\\/+$/,'');
+   if(!/^https:\\/\\/[a-z0-9.-]+(?::[0-9]+)?$/i.test(base)){saveInfo('Неверный адрес сервера.','error');return;}
+   serverCheck.disabled=true;saveInfo('Проверяю подключение к серверу…','neutral');
+   const c=new AbortController(),t=setTimeout(()=>c.abort(),10000);
+   try{
+     const result=await fetch(base+'/health',{signal:c.signal,cache:'no-store'});
+     if(!result.ok)throw new Error('HTTP '+result.status);
+     const data=await result.json();
+     saveInfo(data.ai_available?'Сервер работает. Облачный ИИ включён.':'Сервер доступен, но платный ИИ выключен. Бесплатное удаление фона работает отдельно в телефоне.','success');
+   }catch(err){saveInfo('Сервер сейчас не отвечает: '+(err?.message||'ошибка сети')+'. Бесплатный ИИ от этого не зависит.','error');}
+   finally{clearTimeout(t);serverCheck.disabled=false;}
+ });
  const saveInfo=(message,kind)=>{info.textContent=message;info.dataset.kind=kind||'neutral';};
  try{endpoint.value=localStorage.getItem('photo-magic-ai-server')||'';}catch{}
  endpoint.addEventListener('change',()=>{try{localStorage.setItem('photo-magic-ai-server',endpoint.value.trim());}catch{}});

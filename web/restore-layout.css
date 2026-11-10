@@ -66,3 +66,5 @@
  #page-editor.restore-first-layout .stage-area{min-height:360px!important;height:auto!important;max-height:55vh!important}
  #page-editor.restore-first-layout .right-stack .controlcard{display:block!important}
 }
+/* The picture and fullscreen trigger remain outside the vertically scrolling tool column. */
+#page-editor.restore-first-layout .stage-area{position:relative!important}

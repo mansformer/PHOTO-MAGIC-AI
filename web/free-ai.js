@@ -54,13 +54,12 @@ function loadLibrary(url){
 async function init(){
  if(segmenter)return segmenter;
  if(loading)return loading;
- if(!document.createElement('canvas').getContext('webgl2')&&!document.createElement('canvas').getContext('webgl'))throw new Error('На этом устройстве отключён WebGL. Для бесплатного ИИ включи аппаратное ускорение или попробуй другой телефон.');
  loading=(async()=>{
   // Models and WASM are included in the Android APK. In standalone browser previews,
   // pinned CDN is used only when the local model files do not exist.
   let dir=localFolder;
   try{await loadLibrary(dir+'selfie_segmentation.js');}
-  catch{dir=cdnFolder;await loadLibrary(dir+'selfie_segmentation.js');}
+  catch(error){if(bridge.isAndroid())throw new Error('В APK не найден файл модели. Установи последнюю версию приложения.');dir=cdnFolder;await loadLibrary(dir+'selfie_segmentation.js');}
   const s=new window.SelfieSegmentation({locateFile:file=>dir+file});
   s.setOptions({modelSelection:0,selfieMode:false});
   s.onResults(results=>{
@@ -69,7 +68,25 @@ async function init(){
    if(!results?.segmentationMask){current.reject(new Error('Модель не вернула маску'));return;}
    const m=document.createElement('canvas');
    m.width=current.width;m.height=current.height;
-   m.getContext('2d',{alpha:true}).drawImage(results.segmentationMask,0,0,m.width,m.height);
+   const maskCtx=m.getContext('2d',{alpha:true,willReadFrequently:true});
+   maskCtx.drawImage(results.segmentationMask,0,0,m.width,m.height);
+   const pixels=maskCtx.getImageData(0,0,m.width,m.height);
+   let minAlpha=255,maxAlpha=0;
+   for(let j=3;j<pixels.data.length;j+=Math.max(4,Math.floor(pixels.data.length/3000/4)*4)){
+     minAlpha=Math.min(minAlpha,pixels.data[j]);maxAlpha=Math.max(maxAlpha,pixels.data[j]);
+   }
+   // Depending on the graphics backend the model mask may contain coverage in
+   // its alpha channel, or an opaque gray confidence map in RGB.
+   const useLuminance=maxAlpha-minAlpha<12;
+   if(useLuminance){
+     for(let j=0;j<pixels.data.length;j+=4){
+       const p=(pixels.data[j]*0.299+pixels.data[j+1]*0.587+pixels.data[j+2]*0.114)/255;
+       const t=Math.min(1,Math.max(0,(p-0.10)/0.78));
+       pixels.data[j]=255;pixels.data[j+1]=255;pixels.data[j+2]=255;
+       pixels.data[j+3]=Math.round(t*t*(3-2*t)*255);
+     }
+     maskCtx.putImageData(pixels,0,0);
+   }
    current.resolve(m);
   });
   segmenter=s;
@@ -168,5 +185,5 @@ save.addEventListener('click',async()=>{
   }
  }catch(err){message('Не удалось сохранить PNG: '+(err?.message||'Ошибка'),true);}
 });
-window.PHOTO_MAGIC_FREE_AI={version:'0.8.0',engine:'MediaPipe Selfie Segmentation',run:open,isModelBundled:true};
+window.PHOTO_MAGIC_FREE_AI={version:'0.8.3',engine:'MediaPipe Selfie Segmentation',run:open,isModelBundled:true};
 })();
